@@ -17,12 +17,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'*',
+    origin:'https://jobhunt-ayqj.onrender.com',
     credentials:true
 }
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
