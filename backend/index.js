@@ -17,9 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://thejobportal0.netlify.app',
+    origin:'https://thejobportal0.netlify.app/',
     credentials:true
 }
+// http://localhost:5173
+    // https://thejobportal0.netlify.app
 
 app.use(cors(corsOptions));
 // app.use(cors());
