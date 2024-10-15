@@ -10,40 +10,37 @@ import applicationRoute from "./routes/application.route.js";
 
 dotenv.config({});
 
-// Initialize Express app
 const app = express();
 
-// Middleware
+// middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-
-// CORS configuration for frontend and credentials
 const corsOptions = {
-  origin: process.env.Frontend_URL, // Frontend URL (Netlify or localhost)
-  credentials: true,               // Allow sending cookies
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Restrict methods if needed
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-};
+    origin  :process.env.Frontend_URL,
+    credentials:true
+}
+// http://localhost:5173
+    // https://thejobportal0.netlify.app
 
 app.use(cors(corsOptions));
+// app.use(cors());
 
-// Port configuration
 const PORT = process.env.PORT || 3000;
 
-// Health check route
-app.get("/health", (req, res) => {
-  return res.json("OK");
-});
 
-// API routes
+// api's
+app.get("/health", (req, res) => {
+    return res.json("OK");
+})
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-// Server listener
-app.listen(PORT, () => {
-  connectDB();
-  console.log(`Server running at port ${PORT}`);
-});
+
+
+app.listen(PORT,()=>{
+    connectDB();
+    console.log(`Server running at port ${PORT}`);
+})
