@@ -20,7 +20,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         phoneNumber: user?.phoneNumber || "",
         bio: user?.profile?.bio || "",
         skills: user?.profile?.skills?.map(skill => skill) || "",
-        file: user?.profile?.resume || ""
+        resumeUrl: user?.profile?.resumeUrl || ""
     });
     const dispatch = useDispatch();
 
@@ -28,10 +28,16 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         setInput({ ...input, [e.target.name]: e.target.value });
     }
 
-    const fileChangeHandler = (e) => {
-        const file = e.target.files?.[0];
-        setInput({ ...input, file })
-    }
+    // const fileChangeHandler = (e) => {
+    //     const file = e.target.files?.[0];
+    //     setInput({ ...input, file })
+    // }
+
+    const handleUrlChange = (e) => {
+        const resumeUrl = e.target.value; 
+        setInput({ ...input, resumeUrl }); 
+      };
+      
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -41,8 +47,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("bio", input.bio);
         formData.append("skills", input.skills);
-        if (input.file) {
-            formData.append("file", input.file);
+        if (input.resumeUrl) {
+            formData.append("resumeUrl", input.resumeUrl);
         }
         try {
             setLoading(true);
@@ -131,12 +137,21 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                             </div>
                             <div className='grid grid-cols-4 items-center gap-4'>
                                 <Label htmlFor="file" className="text-right">Resume</Label>
-                                <Input
+                                {/* <Input
                                     id="file"
                                     name="file"
                                     type="file"
                                     accept="application/pdf"
                                     onChange={fileChangeHandler}
+                                    className="col-span-3"
+                                /> */}
+                                <Input
+                                    id="resumeUrl"
+                                    name="resumeUrl"
+                                    type="text"
+                                    value={input.resumeUrl}
+                                    placeholder=' Google Drive Link'
+                                    onChange={handleUrlChange}
                                     className="col-span-3"
                                 />
                             </div>
