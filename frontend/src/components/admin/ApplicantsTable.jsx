@@ -32,7 +32,8 @@ const ApplicantsTable = () => {
                 <TableCaption>A list of your recent applied user</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>FullName</TableHead>
+                        <TableHead>FirstName</TableHead>
+                        <TableHead>LastName</TableHead>
                         <TableHead>Email</TableHead>
                         <TableHead>Contact</TableHead>
                         <TableHead>Resume</TableHead>
@@ -44,7 +45,8 @@ const ApplicantsTable = () => {
                     {
                         applicants && applicants?.applications?.map((item) => (
                             <tr key={item._id}>
-                                <TableCell>{item?.applicant?.fullname}</TableCell>
+                                <TableCell>{item?.applicant?.firstname}</TableCell>
+                                <TableCell>{item?.applicant?.lastname}</TableCell>
                                 <TableCell>{item?.applicant?.email}</TableCell>
                                 <TableCell>{item?.applicant?.phoneNumber}</TableCell>
                                 <TableCell >

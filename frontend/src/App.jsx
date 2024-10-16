@@ -16,6 +16,8 @@ import AdminJobs from './components/admin/AdminJobs';
 import PostJob from './components/admin/PostJob';
 import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
+import ResumeBuilder from './components/ResumeBuilder'; // Adjust the path as necessary
+
 
 const appRouter = createBrowserRouter([
   {
@@ -53,6 +55,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/profile',
     element: <Profile />
+  },
+  {
+    path: '/resume-builder',
+    element: <ResumeBuilder /> // AI Resume Builder route
   },
   // Admin routes
   {

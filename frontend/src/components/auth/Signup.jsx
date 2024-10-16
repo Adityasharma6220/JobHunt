@@ -15,7 +15,8 @@ import { Loader2 } from 'lucide-react'
 const Signup = () => {
 
     const [input, setInput] = useState({
-        fullname: "",
+        firstname: "",
+        lastname: "",
         email: "",
         phoneNumber: "",
         password: "",
@@ -35,7 +36,8 @@ const Signup = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         const formData = new FormData();    //formdata object
-        formData.append("fullname", input.fullname);
+        formData.append("firstname", input.firstname);
+        formData.append("lastname", input.lastname);
         formData.append("email", input.email);
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("password", input.password);
@@ -70,73 +72,104 @@ const Signup = () => {
     return (
         <div>
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl mx-auto'>
-                <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10'>
+            <div className='flex items-center justify-center max-w-7xl  mx-auto'>
+                <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10     '>
                     <h1 className='font-bold text-xl mb-5'>Sign Up</h1>
                     <div className='my-2'>
-                        <Label>Full Name</Label>
+                        <Label>First Name *</Label>
                         <Input
                             type="text"
-                            value={input.fullname}
-                            name="fullname"
+                            value={input.firstname}
+                            name="firstname"
                             onChange={changeEventHandler}
-                            placeholder="patel"
+                            placeholder="aditya"
+                            required
                         />
                     </div>
                     <div className='my-2'>
-                        <Label>Email</Label>
+                        <Label>Last Name *</Label>
+                        <Input
+                            type="text"
+                            value={input.lastname}
+                            name="lastname"
+                            onChange={changeEventHandler}
+                            placeholder="Sharma"
+                            required
+                        />
+                    </div>
+                    <div className='my-2'>
+                        <Label>Email *</Label>
                         <Input
                             type="email"
                             value={input.email}
                             name="email"
                             onChange={changeEventHandler}
-                            placeholder="patel@gmail.com"
+                            placeholder="aditya@gmail.com"
+                            required
                         />
                     </div>
                     <div className='my-2'>
-                        <Label>Phone Number</Label>
+                        <Label>Phone Number *</Label>
                         <Input
                             type="text"
                             value={input.phoneNumber}
                             name="phoneNumber"
                             onChange={changeEventHandler}
                             placeholder="8080808080"
+                            required
                         />
                     </div>
                     <div className='my-2'>
-                        <Label>Password</Label>
+                        <Label>Password *</Label>
                         <Input
-                            type="password"
+                            type="password *"
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="patel@gmail.com"
+                            placeholder="#####"
+                            required
                         />
                     </div>
                     <div className='flex items-center justify-between'>
-                        <RadioGroup className="flex items-center gap-4 my-5">
+                        <RadioGroup className="flex items-center gap-4 my-5" >
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type="radio"
                                     name="role"
                                     value="student"
+                                    id="student"
                                     checked={input.role === 'student'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
+                                    required
                                 />
-                                <Label htmlFor="r1">Student</Label>
+                                <Label htmlFor="student">Student</Label>
                             </div>
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type="radio"
                                     name="role"
                                     value="recruiter"
+                                    id ="r2"
                                     checked={input.role === 'recruiter'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
                                 />
                                 <Label htmlFor="r2">Recruiter</Label>
                             </div>
+                            <div className="flex items-center space-x-2">
+                                <Input
+                                    type="radio"
+                                    name="role"
+                                    value="domesticwokrer"
+                                    checked={input.role === 'domesticwokrer'}
+                                    onChange={changeEventHandler}
+                                    className="cursor-pointer"
+                                    id= "r3"
+                                />
+                                <Label htmlFor="r3">Domestic</Label>
+                            </div>
+
                         </RadioGroup>
                         <div className='flex items-center gap-2'>
                             <Label>Profile</Label>
@@ -145,6 +178,7 @@ const Signup = () => {
                                 type="file"
                                 onChange={changeFileHandler}
                                 className="cursor-pointer"
+                                required
                             />
                         </div>
                     </div>

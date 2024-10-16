@@ -77,7 +77,7 @@ const Login = () => {
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="patel@gmail.com"
+                            placeholder="####"
                         />
                     </div>
                     <div className='flex items-center justify-between'>
@@ -103,6 +103,17 @@ const Login = () => {
                                     className="cursor-pointer"
                                 />
                                 <Label htmlFor="r2">Recruiter</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Input
+                                    type="radio"
+                                    name="role"
+                                    value="domesticwokrer"
+                                    checked={input.role === 'domesticwokrer'}
+                                    onChange={changeEventHandler}
+                                    className="cursor-pointer"
+                                />
+                                <Label htmlFor="r3">Domestic</Label>
                             </div>
                         </RadioGroup>
                     </div>

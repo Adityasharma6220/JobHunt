@@ -42,16 +42,26 @@ const Navbar = () => {
                                     <li><Link to="/admin/companies">Companies</Link></li>
                                     <li><Link to="/admin/jobs">Jobs</Link></li>
                                 </>
-                            ) : (
+                            ) :  user && user.role==='student'?(
+                                <> 
+                            <li><Link to="/">Home</Link></li>
+                                    <li><Link to="/jobs">Jobs</Link></li>
+                                    <li><Link to="/browse">Browse</Link></li>
+                                    <li><Link to="/career">Career Guidance</Link></li>
+                                      {/* <li><Link to="/resume-builder">Resume Builder</Link></li> */}
+                                      
+                                </>
+                            ):
+                            (
                                 <>
                                     <li><Link to="/">Home</Link></li>
                                     <li><Link to="/jobs">Jobs</Link></li>
                                     <li><Link to="/browse">Browse</Link></li>
-                                    <li><Link to="/career">Career Guidance</Link></li>
-                        
+                                    
                                 </>
                             )
                         }
+                
 
 
                     </ul>
@@ -75,18 +85,18 @@ const Navbar = () => {
                                                 <AvatarImage src={user?.profile?.profilePhoto} alt="@shadcn" />
                                             </Avatar>
                                             <div>
-                                                <h4 className='font-medium'>{user?.fullname}</h4>
+                                                <h4 className='font-medium'>{user?.firstname}</h4>
                                                 <p className='text-sm text-muted-foreground'>{user?.profile?.bio}</p>
                                             </div>
                                         </div>
                                         <div className='flex flex-col my-2 text-gray-600'>
                                             {
-                                                user && user.role === 'student' && (
+                                                user && (user.role === 'student'||user.role ==='domesticwokrer') && (
                                                     <div className='flex w-fit items-center gap-2 cursor-pointer'>
                                                         <User2 />
                                                         <Button variant="link"> <Link to="/profile">View Profile</Link></Button>
                                                     </div>
-                                                )
+                                                )  
                                             }
 
                                             <div className='flex w-fit items-center gap-2 cursor-pointer'>
