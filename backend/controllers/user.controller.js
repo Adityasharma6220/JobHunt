@@ -3,12 +3,12 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
-
+import { generateResumeText } from '../utils/generateResumeText .js'; 
 export const register = async (req, res) => {
   try {
-    const { fullname, email, phoneNumber, password, role } = req.body;
+    const { firstname ,lastname,email, phoneNumber, password, role } = req.body;
 
-    if (!fullname || !email || !phoneNumber || !password || !role) {
+    if (!firstname|| !lastname || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
         message: "Something is missing",
         success: false,
@@ -28,7 +28,8 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await User.create({
-      fullname,
+        firstname,
+        lastname,
       email,
       phoneNumber,
       password: hashedPassword,
@@ -87,7 +88,8 @@ export const login = async (req, res) => {
 
     user = {
       _id: user._id,
-      fullname: user.fullname,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
       phoneNumber: user.phoneNumber,
       role: user.role,
@@ -103,7 +105,7 @@ export const login = async (req, res) => {
         secure: true
       })
       .json({
-        message: `Welcome back ${user.fullname}`,
+        message: `Welcome back ${user.firstname}`,
         user,
         success: true,
       });
@@ -129,7 +131,7 @@ export const logout = async (req, res) => {
 };
 export const updateProfile = async (req, res) => {
   try {
-    const { fullname, email, phoneNumber, bio, skills,resumeUrl } = req.body;
+    const { firstname,lastname,email, phoneNumber, bio, skills,resumeUrl } = req.body;
 
     // const file = req.file;
     // // cloudinary ayega idhar
@@ -150,7 +152,8 @@ export const updateProfile = async (req, res) => {
       });
     }
     // updating data
-    if (fullname) user.fullname = fullname;
+    if (firstname) user.firstname = firstname;
+    if (lastname) user.lastname = lastname;
     if (email) user.email = email;
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
@@ -170,7 +173,8 @@ export const updateProfile = async (req, res) => {
 
     user = {
       _id: user._id,
-      fullname: user.fullname,
+      firstname: user.firstname,
+      lastname:user.lastname,
       email: user.email,
       phoneNumber: user.phoneNumber,
       role: user.role,
@@ -185,4 +189,37 @@ export const updateProfile = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+
+// In user.controller.js
+export const generateResume = async (req, res) => {
+    try {
+        console.log('Request Body:', req.body); // Log the incoming request body
+        const { firstname, lastname, profile } = req.body; // Expecting these fields
+        const { skills, bio } = profile || {}; // Safely extract profile properties
+
+        // Check if profile is defined
+        if (!profile || !Array.isArray(skills)) {
+            return res.status(400).json({ success: false, message: 'Profile with skills (array) and bio are required' });
+        }
+
+        const resumeText = await generateResumeText({ firstname, lastname, skills, bio });
+        return res.json({ success: true, resume: resumeText });
+    } catch (error) {
+        console.error('Error generating resume:', error);
+        return res.status(500).json({ success: false, message: 'Resume generation failed' });
+    }
+};
+
+
+export const uploadResume = async (req, res) => {
+    try {
+        const file = req.file; // The uploaded file
+        // Logic to handle the uploaded resume (e.g., saving to a database, etc.)
+        return res.json({ success: true, message: 'Resume uploaded successfully', file });
+    } catch (error) {
+        console.error('Error uploading resume:', error);
+        return res.status(500).json({ success: false, message: 'Resume upload failed' });
+    }
 };

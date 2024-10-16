@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    fullname: {
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
         type: String,
         required: true
     },
@@ -20,9 +24,14 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type:String,
-        enum:['student','recruiter'],
+        enum:['student','recruiter',"domesticwokrer"],
         required:true
     },
+    resumeData: {
+        type: String, // Store the generated resume text
+        default: ""
+    },
+    
     profile:{
         bio:{type:String},
         skills:[{type:String}],
