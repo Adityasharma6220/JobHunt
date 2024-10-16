@@ -23,9 +23,11 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <HeroSection />
-        <CategoryCarousel />
-        <LatestJobs />
+        <HeroSection className="w-full h-auto" />
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <CategoryCarousel className="w-full" />
+          <LatestJobs className="w-full mt-4" />
+        </div>
       </main>
       <Footer />
     </div>
