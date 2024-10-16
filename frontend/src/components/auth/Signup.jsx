@@ -13,7 +13,6 @@ import { setLoading } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
 
 const Signup = () => {
-
     const [input, setInput] = useState({
         firstname: "",
         lastname: "",
@@ -23,7 +22,7 @@ const Signup = () => {
         role: "",
         file: ""
     });
-    const {loading,user} = useSelector(store=>store.auth);
+    const { loading, user } = useSelector(store => store.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -35,7 +34,7 @@ const Signup = () => {
     }
     const submitHandler = async (e) => {
         e.preventDefault();
-        const formData = new FormData();    //formdata object
+        const formData = new FormData();
         formData.append("firstname", input.firstname);
         formData.append("lastname", input.lastname);
         formData.append("email", input.email);
@@ -59,22 +58,25 @@ const Signup = () => {
         } catch (error) {
             console.log(error);
             toast.error(error.response.data.message);
-        } finally{
+        } finally {
             dispatch(setLoading(false));
         }
     }
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             navigate("/");
         }
-    },[])
+    }, [user, navigate]);
+
     return (
         <div>
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl  mx-auto'>
-                <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10     '>
+            <div className='flex items-center justify-center max-w-7xl mx-auto p-4'>
+                <form onSubmit={submitHandler} className='w-full md:w-3/4 lg:w-1/2 border border-gray-200 rounded-md p-4 my-10'>
                     <h1 className='font-bold text-xl mb-5'>Sign Up</h1>
+                    
+                    {/* First Name */}
                     <div className='my-2'>
                         <Label>First Name *</Label>
                         <Input
@@ -82,10 +84,13 @@ const Signup = () => {
                             value={input.firstname}
                             name="firstname"
                             onChange={changeEventHandler}
-                            placeholder="aditya"
+                            placeholder="Aditya"
                             required
+                            className='w-full'
                         />
                     </div>
+
+                    {/* Last Name */}
                     <div className='my-2'>
                         <Label>Last Name *</Label>
                         <Input
@@ -95,8 +100,11 @@ const Signup = () => {
                             onChange={changeEventHandler}
                             placeholder="Sharma"
                             required
+                            className='w-full'
                         />
                     </div>
+
+                    {/* Email */}
                     <div className='my-2'>
                         <Label>Email *</Label>
                         <Input
@@ -106,8 +114,11 @@ const Signup = () => {
                             onChange={changeEventHandler}
                             placeholder="aditya@gmail.com"
                             required
+                            className='w-full'
                         />
                     </div>
+
+                    {/* Phone Number */}
                     <div className='my-2'>
                         <Label>Phone Number *</Label>
                         <Input
@@ -117,21 +128,27 @@ const Signup = () => {
                             onChange={changeEventHandler}
                             placeholder="8080808080"
                             required
+                            className='w-full'
                         />
                     </div>
+
+                    {/* Password */}
                     <div className='my-2'>
                         <Label>Password *</Label>
                         <Input
-                            type="password *"
+                            type="password"
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="#####"
+                            placeholder="*****"
                             required
+                            className='w-full'
                         />
                     </div>
-                    <div className='flex items-center justify-between'>
-                        <RadioGroup className="flex items-center gap-4 my-5" >
+
+                    {/* Role Selection & File Upload */}
+                    <div className='flex flex-col md:flex-row items-start md:items-center justify-between gap-4'>
+                        <RadioGroup className="flex flex-col md:flex-row items-start md:items-center gap-4 my-5 w-full">
                             <div className="flex items-center space-x-2">
                                 <Input
                                     type="radio"
@@ -150,7 +167,7 @@ const Signup = () => {
                                     type="radio"
                                     name="role"
                                     value="recruiter"
-                                    id ="r2"
+                                    id="r2"
                                     checked={input.role === 'recruiter'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
@@ -165,12 +182,12 @@ const Signup = () => {
                                     checked={input.role === 'domesticwokrer'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
-                                    id= "r3"
+                                    id="r3"
                                 />
                                 <Label htmlFor="r3">Domestic</Label>
                             </div>
-
                         </RadioGroup>
+
                         <div className='flex items-center gap-2'>
                             <Label>Profile</Label>
                             <Input
@@ -182,14 +199,27 @@ const Signup = () => {
                             />
                         </div>
                     </div>
+
+                    {/* Submit Button */}
                     {
-                        loading ? <Button className="w-full my-4"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-4">Signup</Button>
+                        loading ? (
+                            <Button className="w-full my-4">
+                                <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait
+                            </Button>
+                        ) : (
+                            <Button type="submit" className="w-full my-4">
+                                Signup
+                            </Button>
+                        )
                     }
-                    <span className='text-sm'>Already have an account? <Link to="/login" className='text-blue-600'>Login</Link></span>
+
+                    <span className='text-sm'>
+                        Already have an account? <Link to="/login" className='text-blue-600'>Login</Link>
+                    </span>
                 </form>
             </div>
         </div>
     )
 }
 
-export default Signup
+export default Signup;
