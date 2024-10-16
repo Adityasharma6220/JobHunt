@@ -7,6 +7,7 @@ import Footer from './shared/Footer';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ValuableResources from './ValuableResources';
 
 const Home = () => {
   useGetAllJobs();
@@ -27,6 +28,7 @@ const Home = () => {
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryCarousel className="w-full" />
           <LatestJobs className="w-full mt-4" />
+          <ValuableResources className="w-full mt-4"/>
         </div>
       </main>
       <Footer />
