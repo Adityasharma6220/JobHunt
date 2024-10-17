@@ -18,7 +18,7 @@ import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 import ResumeBuilder from './components/ResumeBuilder'; // Adjust the path as necessary
 import ResumePreview from './components/ResumePreview';
-
+import CompanyDetails from './components/CompanyDetails';
 
 const appRouter = createBrowserRouter([
   {
@@ -64,6 +64,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/resume-preview',
     element: <ResumePreview /> // AI Resume Builder route
+  },
+  {
+    path: '/company/:id',  // Company details route
+    element: <CompanyDetails /> // Render CompanyDetails component
   },
   // Admin routes
   {

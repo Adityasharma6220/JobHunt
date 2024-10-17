@@ -10,16 +10,29 @@ const Jobs = () => {
     const [filterJobs, setFilterJobs] = useState(allJobs);
 
     useEffect(() => {
-        if (searchedQuery) {
-            const filteredJobs = allJobs.filter((job) => {
-                return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-                    job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-                    job.location.toLowerCase().includes(searchedQuery.toLowerCase());
+        const filteredJobs = allJobs.filter((job) => {
+            // Check if job matches any of the selected filters
+            const matchesFilters = Object.keys(searchedQuery).every(filterType => {
+                const selectedValues = searchedQuery[filterType];
+                // If there are no selected values, skip this filter
+                if (!selectedValues.length) return true;
+
+                // Check if job property matches any of the selected values
+                return selectedValues.some(value => 
+                    job[filterType]?.toLowerCase().includes(value.toLowerCase())
+                );
             });
-            setFilterJobs(filteredJobs);
-        } else {
-            setFilterJobs(allJobs);
-        }
+
+            // Additionally check job title and description against the searchedQuery string
+            const matchesSearch = 
+                job.title.toLowerCase().includes(searchedQuery.title?.toLowerCase() || "") ||
+                job.description.toLowerCase().includes(searchedQuery.description?.toLowerCase() || "");
+
+            return matchesFilters || matchesSearch; // Return true if it matches filters or search terms
+        });
+
+        // Set filtered jobs based on the results
+        setFilterJobs(filteredJobs.length > 0 ? filteredJobs : allJobs); // Default to allJobs if none found
     }, [allJobs, searchedQuery]);
 
     return (
