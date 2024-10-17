@@ -1,59 +1,88 @@
-import React, { useEffect, useState } from 'react'
-import { RadioGroup, RadioGroupItem } from './ui/radio-group'
-import { Label } from './ui/label'
-import { useDispatch } from 'react-redux'
-import { setSearchedQuery } from '@/redux/jobSlice'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSearchedQuery } from '@/redux/jobSlice';
 
-const fitlerData = [
-    {
-        fitlerType: "Location",
-        array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"]
-    },
-    {
-        fitlerType: "Industry",
-        array: ["Frontend Developer", "Backend Developer", "FullStack Developer"]
-    },
-    {
-        fitlerType: "Salary",
-        array: ["0-40k", "42-1lakh", "1lakh to 5lakh"]
-    },
-]
+const filterData = [
+  {
+    filterType: "Location",
+    array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"],
+  },
+  {
+    filterType: "Industry",
+    array: ["Auto Components", "Automobile", "Building Material", "Chemicals"],
+  },
+  {
+    filterType: "Department",
+    array: ["Production, Manufacturing & Engineering", "Sales & Business Development", "Finance & Accounting"],
+  },
+  {
+    filterType: "Experience",
+    array: ["Experienced", "Entry Level"],
+  },
+  {
+    filterType: "Nature of Business",
+    array: ["B2B", "B2C", "SaaS", "D2C"],
+  },
+  {
+    filterType: "Job Posting Date",
+    array: ["< 7 Days", "< 15 Days"],
+  },
+];
 
 const FilterCard = () => {
-    const [selectedValue, setSelectedValue] = useState('');
-    const dispatch = useDispatch();
-    const changeHandler = (value) => {
-        setSelectedValue(value);
-    }
-    useEffect(()=>{
-        dispatch(setSearchedQuery(selectedValue));
-    },[selectedValue]);
-    return (
-        <div className='w-full bg-white p-3 rounded-md'>
-            <h1 className='font-bold text-lg'>Filter Jobs</h1>
-            <hr className='mt-3' />
-            <RadioGroup value={selectedValue} onValueChange={changeHandler}>
-                {
-                    fitlerData.map((data, index) => (
-                        <div>
-                            <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
-                            {
-                                data.array.map((item, idx) => {
-                                    const itemId = `id${index}-${idx}`
-                                    return (
-                                        <div className='flex items-center space-x-2 my-2'>
-                                            <RadioGroupItem value={item} id={itemId} />
-                                            <Label htmlFor={itemId}>{item}</Label>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    ))
-                }
-            </RadioGroup>
-        </div>
-    )
-}
+  const [selectedFilters, setSelectedFilters] = useState({});
+  const dispatch = useDispatch();
 
-export default FilterCard
+  const changeHandler = (filterType, value) => {
+    setSelectedFilters(prevState => ({
+      ...prevState,
+      [filterType]: value
+    }));
+  };
+
+  useEffect(() => {
+    dispatch(setSearchedQuery(selectedFilters));
+  }, [selectedFilters]);
+
+  return (
+    <div className='w-full bg-white p-3 rounded-md'>
+      <h1 className='font-bold text-lg'>Filter Jobs</h1>
+      <hr className='mt-3' />
+      {
+        filterData.map((data, index) => (
+          <div key={index} className='mb-4'>
+            <h1 className='font-bold text-md mb-2'>{data.filterType}</h1>
+            <div>
+              {
+                data.array.map((item, idx) => {
+                  const itemId = `id${index}-${idx}`;
+                  return (
+                    <div className='flex items-center space-x-2 my-2' key={itemId}>
+                      <input
+                        type='checkbox'
+                        id={itemId}
+                        value={item}
+                        checked={selectedFilters[data.filterType]?.includes(item) || false}
+                        onChange={(e) => {
+                          const selectedItems = selectedFilters[data.filterType] || [];
+                          if (e.target.checked) {
+                            changeHandler(data.filterType, [...selectedItems, item]);
+                          } else {
+                            changeHandler(data.filterType, selectedItems.filter(i => i !== item));
+                          }
+                        }}
+                      />
+                      <label htmlFor={itemId}>{item}</label>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  );
+};
+
+export default FilterCard;
