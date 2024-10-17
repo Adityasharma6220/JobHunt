@@ -190,27 +190,103 @@ export const updateProfile = async (req, res) => {
     console.log(error);
   }
 };
-
+// const resumeText = await generateResumeText({ firstname, lastname, skills, bio });
 
 // In user.controller.js
 export const generateResume = async (req, res) => {
-    try {
-        console.log('Request Body:', req.body); // Log the incoming request body
-        const { firstname, lastname, profile } = req.body; // Expecting these fields
-        const { skills, bio } = profile || {}; // Safely extract profile properties
+  try {
+    console.log('Request Body:', req.body);
+    const { firstname, lastname, contact, profile, education, experience } = req.body;
+    const { skills, bio } = profile || {};
 
-        // Check if profile is defined
-        if (!profile || !Array.isArray(skills)) {
-            return res.status(400).json({ success: false, message: 'Profile with skills (array) and bio are required' });
-        }
-
-        const resumeText = await generateResumeText({ firstname, lastname, skills, bio });
-        return res.json({ success: true, resume: resumeText });
-    } catch (error) {
-        console.error('Error generating resume:', error);
-        return res.status(500).json({ success: false, message: 'Resume generation failed' });
+    // Validate the input
+    if (!profile || !Array.isArray(skills) || !skills.length) {
+      return res.status(400).json({ success: false, message: 'Profile with skills (array) and bio are required' });
     }
+
+    if (!contact || !contact.phone || !contact.email) {
+      return res.status(400).json({ success: false, message: 'Complete contact information (phone, email) is required' });
+    }
+    const validatedEducation = Array.isArray(education) ? education : [];
+    const validatedExperience = Array.isArray(experience) ? experience : [];
+
+    // Create resume text dynamically
+    // const resumeText = `
+    // // <!DOCTYPE html>
+    // // <html lang="en">
+    // // <head>
+    // //     <meta charset="UTF-8">
+    // //     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    // //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    // //     <title>Resume</title>
+    // //     <style>
+    // //         body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+    // //         section { margin-bottom: 20px; }
+    // //         ul { padding: 0; margin: 0; }
+    // //         ul li { list-style: none; margin-bottom: 5px; }
+    // //         .skills { display: flex; flex-wrap: wrap; }
+    // //         .skills li { margin-right: 10px; }
+    // //     </style>
+    // // </head>
+    // // <body>
+    // //     <header>
+    // //         <h1>${firstname} ${lastname}</h1>
+    // //         <section>
+    // //             <h2>Contact:</h2>
+    // //             <ul>
+    // //                 <li>Phone: ${contact.phone}</li>
+    // //                 <li>Email: ${contact.email}</li>
+    // //                 <li>Address: undefined</li>
+    // //             </ul>
+    // //         </section>
+    // //         <section>
+    // //             <h2>Skills:</h2>
+    // //             <ul class="skills">
+    // //                 ${skills.map(skill => `<li>${skill}</li>`).join('')}
+    // //             </ul>
+    // //         </section>
+    // //         <section>
+    // //             <h2>Summary:</h2>
+    // //             <p>${bio}</p>
+    // //         </section>
+    // //         <section>
+    // //             <h2>Experience:</h2>
+    // //             <ul>
+    // //                 ${experience.map(exp => `<li>${exp.role} at ${exp.company} (${exp.duration})</li>`).join('')}
+    // //             </ul>
+    // //         </section>
+    // //         <section>
+    // //             <h2>Education:</h2>
+    // //             <ul>
+    // //                 ${education.map(edu => `<li>${edu.degree} from ${edu.institution} (${edu.year})</li>`).join('')}
+    // //             </ul>
+    // //         </section>
+    // //     </header>
+    // // </body>
+    // // </html>`;
+//  
+  const resumeText ="\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Resume</title>\n<style>\n  body {\n    font-family: Arial, sans-serif;\n    margin: 20px;\n  }\n  section {\n    margin-bottom: 15px;\n  }\n  ul {\n    padding: 0;\n    margin: 0;\n    list-style: none;\n    display: flex;\n    flex-wrap: wrap;\n  }\n  li {\n    margin-right: 10px;\n  }\n</style>\n</head>\n<body>\n  <header>\n    <h1>Jyotiraditya K Sharma</h1>\n    <p>Contact:</p>\n    <ul>\n      <li>Phone: 08869847016</li>\n      <li>Email: adityasharma6220@gmail.com</li>\n      <li>Address: undefined</li>\n    </ul>\n  </header>\n  \n  <section>\n    <h2>Summary</h2>\n    <p>bhu</p>\n  </section>\n  \n  <section>\n    <h2>Skills</h2>\n    <ul>\n      <li>HTML</li>\n      <li>CSS</li>\n      <li>JAVA</li>\n      <li>SALESFORCE</li>\n      <li>JS</li>\n    </ul>\n  </section>\n  \n  <section>\n    <h2>Experience</h2>\n    <p>bhhh at hbh (12)</p>\n  </section>\n  \n  <section>\n    <h2>Education</h2>\n    <p>bhh from bh (85)</p>\n  </section>\n</body>\n</html>\n```\nThis HTML template provides a basic and responsive layout for the provided resume data. Feel free to customize and enhance it further according to your needs."
+
+    //   const resumeText = await generateResumeText({
+    //   firstname,
+    //   lastname,
+    //   contact,   
+    //   skills,
+    //   bio,
+    //   education : validatedEducation,
+    //   experience : validatedExperience
+    // });
+    // Send response
+    return res.json({ success: true, resume: resumeText });
+  } catch (error) {
+    console.error('Error generating resume:', error);
+    return res.status(500).json({ success: false, message: 'Resume generation failed' });
+  }
 };
+
+
+
+
 
 
 export const uploadResume = async (req, res) => {
@@ -223,3 +299,6 @@ export const uploadResume = async (req, res) => {
         return res.status(500).json({ success: false, message: 'Resume upload failed' });
     }
 };
+  
+
+ // const resumeText = "Resume\n\nName: Aditya Sharma\n\nSummary:\nExperienced developer with strong skills in HTML, CSS, Java, Salesforce, and JavaScript. Adept at creating dynamic and visually appealing web applications.\n\nSkills:\n- HTML\n- CSS\n- Java\n- Salesforce\n- JavaScript\n\nExperience:\nNo experience listed\n\nEducation:\nNo education listed\n\nAdditional information:\n- Portfolio: [insert portfolio link]\n- LinkedIn: [insert LinkedIn profile link]\n- GitHub: [insert GitHub profile link]\n\nContact information:\nEmail: adityasharma@example.com\nPhone: (123) 456-7890\nLocation: City, State\n\n(Note: Add detailed information on experience and education if available)";

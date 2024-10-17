@@ -1,0 +1,265 @@
+{
+    "jobs": [
+      {
+        "_id": "job1",
+        "title": "Full Stack Developer",
+        "description": "We are looking for a Full Stack Developer proficient in MERN stack to build and maintain web applications.",
+        "company": {
+          "name": "Tech Solutions",
+          "logo": "https://example.com/logo1.png"
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "12",
+        "createdAt": "2024-10-12T08:00:00Z"
+      },
+      {
+        "_id": "job2",
+        "title": "Data Analyst",
+        "description": "Join our data analytics team to work on data-driven insights and reports.",
+        "company": {
+          "name": "DataCorp",
+          "logo": "https://example.com/logo2.png"
+        },
+        "position": "2",
+        "jobType": "Part-Time",
+        "salary": "8",
+        "createdAt": "2024-10-10T08:00:00Z"
+      },
+      {
+        "_id": "job3",
+        "title": "Java Backend Developer",
+        "description": "We need a skilled Java Backend Developer to work on enterprise-level applications.",
+        "company": {
+          "name": "SoftApps",
+          "logo": "https://example.com/logo3.png"
+        },
+        "position": "1",
+        "jobType": "Contract",
+        "salary": "15",
+        "createdAt": "2024-10-09T08:00:00Z"
+      },
+      {
+        "_id": "job4",
+        "title": "Frontend Developer",
+        "description": "Seeking a skilled frontend developer proficient in React and CSS.",
+        "company": {
+          "name": "Web Creators",
+          "logo": "https://example.com/logo4.png"
+        },
+        "position": "4",
+        "jobType": "Full-Time",
+        "salary": "10",
+        "createdAt": "2024-10-11T08:00:00Z"
+      },
+      {
+        "_id": "job5",
+        "title": "UI/UX Designer",
+        "description": "Creative UI/UX Designer needed to design interfaces for mobile and web applications.",
+        "company": {
+          "name": "DesignStudio",
+          "logo": "https://example.com/logo5.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "9",
+        "createdAt": "2024-10-08T08:00:00Z"
+      },
+      {
+        "_id": "job6",
+        "title": "DevOps Engineer",
+        "description": "We are looking for a DevOps Engineer to manage CI/CD pipelines.",
+        "company": {
+          "name": "CloudNet",
+          "logo": "https://example.com/logo6.png"
+        },
+        "position": "1",
+        "jobType": "Full-Time",
+        "salary": "16",
+        "createdAt": "2024-10-07T08:00:00Z"
+      },
+      {
+        "_id": "job7",
+        "title": "Mobile App Developer",
+        "description": "Develop cross-platform mobile applications using React Native.",
+        "company": {
+          "name": "App Innovators",
+          "logo": "https://example.com/logo7.png"
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "11",
+        "createdAt": "2024-10-06T08:00:00Z"
+      },
+      {
+        "_id": "job8",
+        "title": "Machine Learning Engineer",
+        "description": "Work on cutting-edge ML algorithms and model deployments.",
+        "company": {
+          "name": "DataAI Labs",
+          "logo": "https://example.com/logo8.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "18",
+        "createdAt": "2024-10-05T08:00:00Z"
+      },
+      {
+        "_id": "job9",
+        "title": "Blockchain Developer",
+        "description": "Develop decentralized applications and smart contracts.",
+        "company": {
+          "name": "Crypto Solutions",
+          "logo": "https://example.com/logo9.png"
+        },
+        "position": "2",
+        "jobType": "Contract",
+        "salary": "20",
+        "createdAt": "2024-10-04T08:00:00Z"
+      },
+      {
+        "_id": "job10",
+        "title": "Cloud Engineer",
+        "description": "Manage and optimize cloud infrastructures using AWS and Azure.",
+        "company": {
+          "name": "CloudTech",
+          "logo": "https://example.com/logo10.png"
+        },
+        "position": "5",
+        "jobType": "Full-Time",
+        "salary": "14",
+        "createdAt": "2024-10-03T08:00:00Z"
+      },
+      {
+        "_id": "job11",
+        "title": "Security Analyst",
+        "description": "Work on vulnerability assessments and network security.",
+        "company": {
+          "name": "SecureNet",
+          "logo": "https://example.com/logo11.png"
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "13",
+        "createdAt": "2024-10-02T08:00:00Z"
+      },
+      {
+        "_id": "job12",
+        "title": "AI Researcher",
+        "description": "Conduct AI research and develop innovative AI solutions.",
+        "company": {
+          "name": "AI Innovations",
+          "logo": "https://example.com/logo12.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "22",
+        "createdAt": "2024-10-01T08:00:00Z"
+      },
+      {
+        "_id": "job13",
+        "title": "Technical Support Engineer",
+        "description": "Provide technical support for software solutions.",
+        "company": {
+          "name": "HelpDesk Solutions",
+          "logo": "https://example.com/logo13.png"
+        },
+        "position": "4",
+        "jobType": "Full-Time",
+        "salary": "8",
+        "createdAt": "2024-09-30T08:00:00Z"
+      },
+      {
+        "_id": "job14",
+        "title": "Project Manager",
+        "description": "Manage project timelines and deliverables for software development projects.",
+        "company": {
+          "name": "PM Hub",
+          "logo": "https://example.com/logo14.png"
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "19",
+        "createdAt": "2024-09-29T08:00:00Z"
+      },
+      {
+        "_id": "job15",
+        "title": "System Administrator",
+        "description": "Maintain and manage IT infrastructure and networks.",
+        "company": {
+          "name": "Network Solutions",
+          "logo": "https://example.com/logo15.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "12",
+        "createdAt": "2024-09-28T08:00:00Z"
+      },
+      {
+        "_id": "job16",
+        "title": "iOS Developer",
+        "description": "Develop iOS applications using Swift and Objective-C.",
+        "company": {
+          "name": "MobileApp Inc.",
+          "logo": "https://example.com/logo16.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "14",
+        "createdAt": "2024-09-27T08:00:00Z"
+      },
+      {
+        "_id": "job17",
+        "title": "Android Developer",
+        "description": "Develop Android applications using Kotlin and Java.",
+        "company": {
+          "name": "AppGen",
+          "logo": "https://example.com/logo17.png"
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "13",
+        "createdAt": "2024-09-26T08:00:00Z"
+      },
+      {
+        "_id": "job18",
+        "title": "Scrum Master",
+        "description": "Lead Agile teams as a certified Scrum Master.",
+        "company": {
+          "name": "AgileWorks",
+          "logo": "https://example.com/logo18.png"
+        },
+        "position": "2",
+        "jobType": "Full-Time",
+        "salary": "17",
+        "createdAt": "2024-09-25T08:00:00Z"
+      },
+      {
+        "_id": "job19",
+        "title": "Product Manager",
+        "description": "Oversee product development lifecycle and manage cross-functional teams.",
+        "company": {
+          "name": "Productify",
+          "logo": ""
+        },
+        "position": "3",
+        "jobType": "Full-Time",
+        "salary": "20",
+        "createdAt": "2024-09-24T08:00:00Z"
+      },
+      {
+        "_id": "job20",
+        "title": "Technical Writer",
+        "description": "Create technical documentation and user guides for software products.",
+        "company": {
+          "name": "WriteTech",
+          "logo": "https://example.com/logo20.png"
+        },
+        "position": "1",
+        "jobType": "Full-Time",
+        "salary": "9",
+        "createdAt": "2024-09-23T08:00:00Z"
+      }
+    ]
+  }
+  
