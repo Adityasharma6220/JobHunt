@@ -48,6 +48,7 @@ const Navbar = () => {
                                     <li><Link to="/jobs">Jobs</Link></li>
                                     <li><Link to="/browse">Browse</Link></li>
                                     <li><Link to="/career">Career Guidance</Link></li>
+                                    <li><Link to ='/aptitude'>AptitudeGame</Link></li>
                                       {/* <li><Link to="/resume-builder">Resume Builder</Link></li> */}
                                       
                                 </>
@@ -59,6 +60,7 @@ const Navbar = () => {
                                     <li><Link to="/browse">Browse</Link></li>
                                     <li><Link to="/career">Career Guidance</Link></li>
                                     <li><Link to ='/aptitude'>AptitudeGame</Link></li>
+                                  
                                     
                                 </>
                             )

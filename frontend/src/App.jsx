@@ -21,6 +21,7 @@ import ResumePreview from './components/ResumePreview';
 import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
 
+
 const appRouter = createBrowserRouter([
   {
     path: '/',
@@ -74,6 +75,7 @@ const appRouter = createBrowserRouter([
     path: '/aptitude',  // Company details route
     element: <GameEmbeded /> // Render CompanyDetails component
   },
+ 
   // Admin routes
   {
     path: '/admin/companies',

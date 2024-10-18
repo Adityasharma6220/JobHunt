@@ -14,7 +14,7 @@ const GameEmbeded = () => {
           frameBorder="0"
           allowFullScreen
           title="Embedded Game"
-          scrolling="no"  // Disables iframe scrolling
+          scrolling="no" 
         ></iframe>
       </div>
     </div>
