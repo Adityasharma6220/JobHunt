@@ -19,6 +19,7 @@ import ProtectedRoute from './components/admin/ProtectedRoute';
 import ResumeBuilder from './components/ResumeBuilder'; // Adjust the path as necessary
 import ResumePreview from './components/ResumePreview';
 import CompanyDetails from './components/CompanyDetails';
+import GameEmbeded from './components/GameEmbeded';
 
 const appRouter = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/company/:id',  // Company details route
     element: <CompanyDetails /> // Render CompanyDetails component
+  },
+  {
+    path: '/aptitude',  // Company details route
+    element: <GameEmbeded /> // Render CompanyDetails component
   },
   // Admin routes
   {

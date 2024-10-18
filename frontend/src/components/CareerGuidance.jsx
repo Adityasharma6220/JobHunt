@@ -302,7 +302,7 @@ const CareerGuidance = () => {
           <button onClick={() => handleCategoryChange('Webinars')} className={`px-4 py-2 rounded-md ${
               selectedCategory === 'Webinars' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
             }`}>
-            Scholarships
+            Webinars
           </button>
           {/* <div>
             <Link to="/view-all" className="text-blue-500">View all</Link>
