@@ -77,6 +77,7 @@ const Navbar = () => {
                     AI Mock Interviews
                   </a>
                 </li>
+                <li><Link to ='/testimonial'>Testimonials</Link></li>
                 {/* <li><Link to="/resume-builder">Resume Builder</Link></li> */}
               </>
             ) : (
@@ -105,6 +106,7 @@ const Navbar = () => {
                     Mock-interview
                   </a>
                 </li>
+                <li><Link to ='/testimonial'>Testimonials</Link></li>
               </>
             )}
           </ul>

@@ -3,46 +3,12 @@ import { useDispatch } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 
 const filterData = [
-  {
-    filterType: "Location",
-    array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"],
-  },
-  {
-    filterType: "Industry",
-    array: [ "Healthcare",
-     "Engineering",
-     "Information Technology",
-     "Education",
-    " Business and Finance",
-     "Creative Arts",
-     "Skilled trades",
-     "Science and Research",
-     "Law and Public Policy",
-         "Hospitality and Tourism",
-        "Manufacturing and Production",
-         "Agriculture and Environment",
-         "Sales and Retail",
-         "Transportation and Logistics",
-         "Media and Communication",
-         "Architecture and Design"
-       ],
-  },
-  {
-    filterType: "Department",
-    array: ["Production, Manufacturing & Engineering", "Sales & Business Development", "Finance & Accounting"],
-  },
-  {
-    filterType: "Experience",
-    array: ["Experienced", "Entry Level"],
-  },
-  {
-    filterType: "Nature of Business",
-    array: ["B2B", "B2C", "SaaS", "D2C"],
-  },
-  {
-    filterType: "Job Posting Date",
-    array: ["< 7 Days", "< 15 Days"],
-  },
+  { filterType: "Location", array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"] },
+  { filterType: "Industry", array: ["Healthcare", "Engineering", "Information Technology", "Education", "Business and Finance"] },
+  { filterType: "Department", array: ["Production, Manufacturing & Engineering", "Sales & Business Development", "Finance & Accounting"] },
+  { filterType: "Experience", array: ["Experienced", "Entry Level"] },
+  { filterType: "Nature of Business", array: ["B2B", "B2C", "SaaS", "D2C"] },
+  { filterType: "Job Posting Date", array: ["< 7 Days", "< 15 Days"] },
 ];
 
 const FilterCard = () => {
@@ -57,8 +23,8 @@ const FilterCard = () => {
   };
 
   useEffect(() => {
-    dispatch(setSearchedQuery(selectedFilters));
-  }, [selectedFilters]);
+    dispatch(setSearchedQuery(selectedFilters)); // Dispatch selected filters to Redux
+  }, [selectedFilters, dispatch]);
 
   return (
     <div className='w-full bg-white p-3 rounded-md'>

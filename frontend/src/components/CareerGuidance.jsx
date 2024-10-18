@@ -28,99 +28,113 @@ import webinarImage2 from '../assets/webinarImage2.jpg';
 
 const CareerGuidance = () => {
 
-  const [selectedCategory, setSelectedCategory] = useState('QandA');
+  const [selectedCategory, setSelectedCategory] = useState('InterviewExperience');
   const cardData = {
     QandA: [
-      {
-        id: 1,
-        imgSrc: salaryImage,
-        altText: "Salary Expectations",
-        title: "How to Answer 'What Is Your Salary Expectations?'",
-        description: "Best Answers For...",
-        readTime: "9 min read",
-        views: "24,945 views",
-        likes: "3 likes",
-        link : "https://www.youtube.com/shorts/-dNj_NE6Uno"
-      },
-      {
-        id: 2,
-        imgSrc: civilEngineeringImage,
-        altText: "Civil Engineering Interview Questions",
-        title: "Civil Engineering Interview Questions (For Freshers)",
-        description: "Important Questions with Answers...",
-        readTime: "8 min read",
-        views: "6,069 views",
-        likes: "4 likes",
-        link:"https://www.youtube.com/shorts/OlkLOofKjgk"
-      },
-      {
-        id: 3,
-        imgSrc: mernstack,
-        altText: "MERN Stack Interview Questions",
-        title: "MERN Stack Interview Questions (For Freshers)",
-        description: "Important Questions with Answers...",
-        readTime: "8 min read",
-        views: "6,069 views",
-        likes: "4 likes",
-        link:"https://www.youtube.com/shorts/ufyVoKzlzzg"
-      },
-      {
-        id: 4,
-        imgSrc: java,
-        altText: "Java Interview Questions",
-        title: "Java Interview Questions (For Freshers)",
-        description: "Important Questions with Answers...",
-        readTime: "8 min read",
-        views: "6,069 views",
-        likes: "4 likes",
-        link :"https://www.youtube.com/shorts/hasloamb29o"
-      },
-      {
-        id: 5,
-        imgSrc: dataany,
-        altText: "Data Analyst Interview Questions",
-        title: "Data Analyst Interview Questions (For Freshers)",
-        description: "Important Questions with Answers...",
-        readTime: "8 min read",
-        views: "6,069 views",
-        likes: "4 likes",
-        link: "https://www.youtube.com/shorts/eLJAALcpd2A"
-      }
+      // {
+      //   id: 1,
+      //   imgSrc: salaryImage,
+      //   altText: "Salary Expectations",
+      //   title: "How to Answer 'What Is Your Salary Expectations?'",
+      //   description: "Best Answers For...",
+      //   readTime: "9 min read",
+      //   views: "24,945 views",
+      //   likes: "3 likes",
+      //   link : "https://www.youtube.com/shorts/-dNj_NE6Uno"
+      // },
+      // {
+      //   id: 2,
+      //   imgSrc: civilEngineeringImage,
+      //   altText: "Civil Engineering Interview Questions",
+      //   title: "Civil Engineering Interview Questions (For Freshers)",
+      //   description: "Important Questions with Answers...",
+      //   readTime: "8 min read",
+      //   views: "6,069 views",
+      //   likes: "4 likes",
+      //   link:"https://www.youtube.com/shorts/OlkLOofKjgk"
+      // },
+      // {
+      //   id: 3,
+      //   imgSrc: mernstack,
+      //   altText: "MERN Stack Interview Questions",
+      //   title: "MERN Stack Interview Questions (For Freshers)",
+      //   description: "Important Questions with Answers...",
+      //   readTime: "8 min read",
+      //   views: "6,069 views",
+      //   likes: "4 likes",
+      //   link:"https://www.youtube.com/shorts/ufyVoKzlzzg"
+      // },
+      // {
+      //   id: 4,
+      //   imgSrc: java,
+      //   altText: "Java Interview Questions",
+      //   title: "Java Interview Questions (For Freshers)",
+      //   description: "Important Questions with Answers...",
+      //   readTime: "8 min read",
+      //   views: "6,069 views",
+      //   likes: "4 likes",
+      //   link :"https://www.youtube.com/shorts/hasloamb29o"
+      // },
+      // {
+      //   id: 5,
+      //   imgSrc: dataany,
+      //   altText: "Data Analyst Interview Questions",
+      //   title: "Data Analyst Interview Questions (For Freshers)",
+      //   description: "Important Questions with Answers...",
+      //   readTime: "8 min read",
+      //   views: "6,069 views",
+      //   likes: "4 likes",
+      //   link: "https://www.youtube.com/shorts/eLJAALcpd2A"
+      // }
     ],
     InterviewExperience: [
       {
         id: 1,
-        imgSrc: mernexp,
+        companyName :"Infycle Technologies" ,
+        imgSrc: "https://images.ctfassets.net/pdf29us7flmy/1AI7g4HlvOAnW3K5WRQ3vV/9bff41707a194ffdc2b06d0306a2c5ed/Interview_tips.jpg",
         altText: "MERN Stack Expereince",
         title: "MERN Stack Interview Questions (For Freshers)",
         description: "Important Questions with Answers...",
         readTime: "8 min read",
         views: "6,069 views",
         likes: "4 likes",
-        link:"https://www.youtube.com/shorts/eLJAALcpd2A"
+        link:"https://infycletechnologies.com/freshers-interview-questions-answers/"
       },
       {
         id: 2,
-        imgSrc: javaexp,
+        companyName :"Yodli" ,
+        imgSrc: "https://images.ctfassets.net/pdf29us7flmy/5y08rbLxVoaMlnRGXxfsms/f455f5430679821cbde1317fd84f43cc/Top_interview_tips.jpg?w=720&q=100&fm=jpg",
         altText: "Java Expereince",
         title: "Java Interview Questions (For Freshers)",
         description: "Important Questions with Answers...",
         readTime: "8 min read",
         views: "6,069 views",
         likes: "4 likes",
-        link:"https://www.youtube.com/shorts/eLJAALcpd2A"
+        link:"https://yoodli.ai/blog/23-interview-questions-for-freshers-plus-answer"
       },
       {
         id: 3,
-        imgSrc: dataexp,
+        companyName :"Interview Cracker" ,
+        imgSrc: "https://images.ctfassets.net/pdf29us7flmy/2S7snvMnmVM1hI7Y3mEJO8/b7c4999d2e1b210b2421cbb9f0af5ac3/UwT7wUKw.png?w=720&q=100&fm=jpg",
         altText: "Data Expereince",
         title: "Java Interview Questions (For Freshers)",
-        description: "Important Questions with Answers...",
+        description: "Top 20 Interview Questions and Answers for Freshers",
         readTime: "8 min read",
         views: "6,069 views",
         likes: "4 likes",
-        link:"https://www.youtube.com/shorts/eLJAALcpd2A"
-      },
+        link:"https://interviewcracker.com/blog/top-20-interview-questions-and-answers-for-freshers-and-interns"
+      },{
+        id: 4,
+        companyName :"Ace Your First Job Interview with Coursera" ,
+        imgSrc: "https://images.ctfassets.net/pdf29us7flmy/dPdD5nOKmwMSWaKJDJ4VW/cadd6776536cf0abda678b795227b5d6/7lNdSMQY.png?w=720&q=100&fm=jpg",
+        altText: "Data Analyst Interview Questions",
+        title: "Data Analyst Interview Questions (For Freshers)",
+        description: "Top 11 Questions Freshers Must Prepare For",
+        readTime: "8 min read",
+        views: "6,069 views",
+        likes: "4 likes",
+        link: "https://www.coursera.org/in/articles/interview-questions-for-freshers"
+      }
     ],
    
     Courses: [
@@ -160,19 +174,39 @@ const CareerGuidance = () => {
     Events: [
       {
         id: 1,
-        imgSrc: eventsImage,
+        companyName:"Gyandhan",
+        imgSrc: "https://d1i7580riw15wg.cloudfront.net/gd-assets/newui/home_page_hero_img-d1fd964c7c2ed889688808cc2604996926e6338105c3996295221dced9d03c06.webp",
         altText: 'Upcoming Tech Events',
         title: 'Upcoming Events for Learning and Networking',
         description: "Attend top events in the tech industry.",
-        link: "https://www.example.com/events" // Placeholder for the link
+        link: "https://www.gyandhan.com/events" // Placeholder for the link
       },
       {
         id: 2,
-        imgSrc: eventsImage2,
+        companyName:"Techcrunch",
+        imgSrc: "https://www.adweek.com/wp-content/uploads/2022/09/techcrunch-subscription-events-revenue-2022.jpg?w=1200",
         altText: 'Webinars on Technology',
         title: 'Webinars on Latest Technologies',
         description: "Stay updated with the latest in tech.",
-        link: "https://www.example.com/webinars" // Placeholder for the link
+        link: "https://techcrunch.com/events/" // Placeholder for the link
+      },
+      {
+        id: 3,
+        companyName:"Startupgrind",
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiewBZvTn97q9Wow8_kCbMW4foRlANixOxeVTqpQUVL5AP56OjZDQPmRulCL1DbpCTsyQ&usqp=CAU",
+        altText: 'Upcoming Tech Events',
+        title: 'Upcoming Events for Learning and Networking',
+        description: "Attend top events in the tech industry.",
+        link: "https://www.startupgrind.com/events/" // Placeholder for the link
+      },
+      {
+        id: 4,
+        companyName:"Ted",
+        imgSrc: "https://tedxwinterpark.com/wp-content/uploads/2019/11/TEDxWinterPark-About-TEDx.jpg",
+        altText: 'Upcoming Tech Events',
+        title: 'Upcoming Events for Learning and Networking',
+        description: "Attend top events in the tech industry.",
+        link: "https://www.ted.com/tedx/events" // Placeholder for the link
       },
     ],
     Competitions: [
@@ -263,11 +297,11 @@ const CareerGuidance = () => {
         <h1 className="font-bold text-2xl mb-8">Career Guidance</h1>
 
         <div className='flex items-center justify-around mx-auto max-w-7xl h-16  border-black-500 border-b-2 mb-6'>
-          <button onClick={() => handleCategoryChange('QandA')} className={`px-4 py-2 rounded-md ${
+          {/* <button onClick={() => handleCategoryChange('QandA')} className={`px-4 py-2 rounded-md ${
               selectedCategory === 'QandA' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
             }`}>
-            Question & Answers
-          </button>
+            {/* Question & Answers */}
+          {/* </button>  */}
           <button onClick={() => handleCategoryChange('InterviewExperience')} className={`px-4 py-2 rounded-md ${
               selectedCategory === 'InterviewExperience' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
             }`}>
@@ -314,6 +348,7 @@ const CareerGuidance = () => {
        
           {cardData[selectedCategory].map((card) => (
             <a key={card.id} 
+
                  href={card.link}
                  target="_blank" // Open link in a new tab
                  rel="noopener noreferrer"  className="col-span-4 bg-white rounded-lg shadow-lg border border-gray-200 w-20px">
@@ -325,6 +360,7 @@ const CareerGuidance = () => {
                 />
               </div>
               <div className="p-4">
+                <h1 className="text-lg font-semibold mb-2"> {card.companyName}</h1>
                 <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
                 <p className="text-gray-600 mb-4">{card.description}</p>
 

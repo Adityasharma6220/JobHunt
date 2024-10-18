@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './shared/Navbar';
 import Job from './Job';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { motion } from 'framer-motion';
+import { Search } from 'lucide-react'; // Search icon from lucide-react
 
 const Browse = () => {
     useGetAllJobs(); // Hook to get all jobs
     const { allJobs } = useSelector(store => store.job);
     const dispatch = useDispatch();
+
+    const [searchOpen, setSearchOpen] = useState(false); // Toggle search input visibility
+    const [searchTerm, setSearchTerm] = useState(""); // Search input state
+    const [filteredJobs, setFilteredJobs] = useState(allJobs); // Filtered jobs
 
     // Clear search query on unmount
     useEffect(() => {
@@ -18,6 +23,16 @@ const Browse = () => {
         };
     }, [dispatch]);
 
+    // Update filtered jobs when search term changes
+    useEffect(() => {
+        const filtered = allJobs.filter((job) => 
+            job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (typeof job.company.name === 'string' && job.company.name.toLowerCase().includes(searchTerm.toLowerCase())) // Check if job.company is a string
+        );
+        setFilteredJobs(filtered);
+    }, [searchTerm, allJobs]);
+
     return (
         <div>
             {/* Navbar */}
@@ -25,14 +40,34 @@ const Browse = () => {
 
             {/* Main Content */}
             <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8'>
-                <h1 className='font-bold text-xl my-10'>
-                    Search Results ({allJobs.length})
-                </h1>
+                <div className='flex items-center justify-between'>
+                    {/* Replace Browse with Search Icon */}
+                    <h1 className='font-bold text-xl my-10 flex items-center'>
+                        <Search 
+                            className="mr-2 cursor-pointer" 
+                            onClick={() => setSearchOpen(!searchOpen)} 
+                        /> {/* Search icon, toggles input */}
+                        Search Results ({filteredJobs.length})
+                    </h1>
+                </div>
+
+                {/* Conditionally render search input */}
+                {searchOpen && (
+                    <div className="mb-6">
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="p-2 border border-gray-300 rounded-md w-full"
+                            placeholder="Search by job title, description, or company name..."
+                        />
+                    </div>
+                )}
 
                 {/* Grid for Job Cards */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                    {allJobs.length > 0 ? (
-                        allJobs.map((job) => (
+                    {filteredJobs.length > 0 ? (
+                        filteredJobs.map((job) => (
                             <motion.div
                                 className='max-w-xs mx-auto'
                                 initial={{ opacity: 0, y: 100 }}

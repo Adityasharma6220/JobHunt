@@ -20,6 +20,7 @@ import ResumeBuilder from './components/ResumeBuilder'; // Adjust the path as ne
 import ResumePreview from './components/ResumePreview';
 import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
+import Testimonials from './components/Testimonials';
 
 
 const appRouter = createBrowserRouter([
@@ -74,6 +75,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/aptitude',  // Company details route
     element: <GameEmbeded /> // Render CompanyDetails component
+  },
+  {
+    path: '/testimonial',  // Company details route
+    element: <Testimonials /> // Render CompanyDetails component
   },
  
   // Admin routes

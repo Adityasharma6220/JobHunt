@@ -1,25 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
-import { Avatar, AvatarImage } from '../ui/avatar'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
-import { Edit2, MoreHorizontal } from 'lucide-react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Avatar, AvatarImage } from '../ui/avatar';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { Edit2, MoreHorizontal, Trash2 } from 'lucide-react'; // Import Trash2 icon for delete option
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const CompaniesTable = () => {
     const { companies, searchCompanyByText } = useSelector(store => store.company);
     const [filterCompany, setFilterCompany] = useState(companies);
     const navigate = useNavigate();
-    useEffect(()=>{
-        const filteredCompany = companies.length >= 0 && companies.filter((company)=>{
-            if(!searchCompanyByText){
-                return true
-            };
-            return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase());
 
+    useEffect(() => {
+        const filteredCompany = companies.length >= 0 && companies.filter((company) => {
+            if (!searchCompanyByText) {
+                return true;
+            }
+            return company?.name?.toLowerCase().includes(searchCompanyByText.toLowerCase());
         });
         setFilterCompany(filteredCompany);
-    },[companies,searchCompanyByText])
+    }, [companies, searchCompanyByText]);
+
+    const handleDelete = async (companyId) => {
+        if (window.confirm("Are you sure you want to delete this company?")) {
+            try {
+                const response = await fetch(`/api/company/${companyId}`, {
+                    method: 'DELETE',
+                });
+
+                if (response.ok) {
+                    alert("Company deleted successfully.");
+                    // Optionally, you can refresh the company list or handle the state update
+                    // You can refetch companies here if needed
+                } else {
+                    alert("Failed to delete the company.");
+                }
+            } catch (error) {
+                console.error("Error deleting company:", error);
+            }
+        }
+    };
+
     return (
         <div>
             <Table>
@@ -35,33 +56,38 @@ const CompaniesTable = () => {
                 <TableBody>
                     {
                         filterCompany?.map((company) => (
-                            <tr>
+                            <TableRow key={company._id}>
                                 <TableCell>
                                     <Avatar>
-                                        <AvatarImage src={company.logo}/>
+                                        <AvatarImage src={company.logo} />
                                     </Avatar>
                                 </TableCell>
                                 <TableCell>{company.name}</TableCell>
                                 <TableCell>{company.createdAt.split("T")[0]}</TableCell>
                                 <TableCell className="text-right cursor-pointer">
                                     <Popover>
-                                        <PopoverTrigger><MoreHorizontal /></PopoverTrigger>
+                                        <PopoverTrigger>
+                                            <MoreHorizontal />
+                                        </PopoverTrigger>
                                         <PopoverContent className="w-32">
-                                            <div onClick={()=> navigate(`/admin/companies/${company._id}`)} className='flex items-center gap-2 w-fit cursor-pointer'>
+                                            <div onClick={() => navigate(`/admin/companies/${company._id}`)} className='flex items-center gap-2 w-fit cursor-pointer'>
                                                 <Edit2 className='w-4' />
                                                 <span>Edit</span>
+                                            </div>
+                                            <div onClick={() => handleDelete(company._id)} className='flex items-center gap-2 w-fit cursor-pointer text-red-600'>
+                                                <Trash2 className='w-4' />
+                                                <span>Delete</span>
                                             </div>
                                         </PopoverContent>
                                     </Popover>
                                 </TableCell>
-                            </tr>
-
+                            </TableRow>
                         ))
                     }
                 </TableBody>
             </Table>
         </div>
-    )
+    );
 }
 
-export default CompaniesTable
+export default CompaniesTable;
