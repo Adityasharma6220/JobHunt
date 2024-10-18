@@ -74,7 +74,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Mock-interview
+                    AI Mock Interviews
                   </a>
                 </li>
                 {/* <li><Link to="/resume-builder">Resume Builder</Link></li> */}
