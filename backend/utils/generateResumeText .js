@@ -12,97 +12,8 @@ export const generateResumeText = async (user) => {
   const educationList = education.length > 0 ? education.map(edu => `${edu.degree} from ${edu.institution} (${edu.year})`).join('; ') : "No education listed";
 const experienceList = experience.length > 0 ? experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('; ') : "No experience listed";
 
-  // const prompt = `
-  //   Create a resume for the following user profile:
-  //   Name: ${firstname} ${lastname}
-  //   Skills: ${skillsList}
-  //   Bio: ${bio}
-  //   Education: ${educationList}
-  //   Experience: ${experienceList}
-
-  //   Format it properly with sections like 'Summary', 'Skills', 'Experience', 'Education', etc.
-  // `;
-
-//   const prompt = `
-// Generate a compact and responsive HTML5 resume template with the following structure. Use the dynamic data provided for each section to populate the template.
-
-// ### Resume Structure:
-// 1. **Name**: ${firstname} ${lastname}
-// 2. **Contact Information**: 
-//    - Phone: ${contact.phone}
-//    - Email: ${contact.email}
-   
-// 3. **Summary**: ${bio}
-// 4. **Skills**: 
-//    - ${skillsList}
-// 5. **Experience**: 
-//    - ${experienceList}
-// 6. **Education**: 
-//    - ${educationList}
-
-// ### HTML and CSS Formatting:
-// - Use "<header>" for the user's name and basic details.
-// - Use "<section>" for each section (contact info, summary, skills, experience, education).
-// - For skills, use a flex-based list for compact presentation.
-// - For experience and education, use inline formatting to conserve space.
-// - Ensure the resume is mobile-responsive with minimal CSS styling.
-
-// ### Final Output Format:
-// Name: ${firstname} ${lastname}
-// Contact:
-// - Phone: ${contact.phone}
-// - Email: ${contact.email}
-// Skills: ${skillsList}
-// Bio: ${bio}
-// Education: ${educationList}
-// Experience: ${experienceList}
-// `;
-
-// const prompt = `
-// Generate a sleek, compact, and responsive HTML5 resume template using the dynamic data provided for each section. Ensure that the design is visually appealing and utilizes modern web practices for responsiveness.
-
-// ### Resume Structure:
-// 1. **Name**: ${firstname} ${lastname}
-// 2. **Contact Information**: 
-//    - Phone: ${contact.phone}
-//    - Email: ${contact.email}
-//    - LinkedIn: ${contact.linkedin}
-//    - GitHub: ${contact.github}
-   
-// 3. **Summary**: ${bio}
-// 4. **Skills**: 
-//    - ${skillsList}
-// 5. **Experience**: 
-//    - ${experienceList}
-// 6. **Education**: 
-//    - ${educationList}
-// 7. **Projects**: 
-//    - ${projectsList}
-
-// ### HTML and CSS Formatting:
-// - Use "<header>" for the user's name and basic details.
-// - Use "<section>" for each part of the resume (contact info, summary, skills, experience, education, projects).
-// - For skills, implement a flexbox layout for compact presentation with skill tags.
-// - For experience and education, use inline formatting to conserve space, listing roles and institutions next to each other.
-// - Use "<ul>" and "<li>" elements for projects, ensuring clear separation.
-// - Make sure the resume is fully mobile-responsive, employing media queries for better readability on smaller screens.
-// - Include minimal, yet elegant CSS styling to enhance visual appeal while keeping it professional.
-
-// ### Final Output Format:
-// Name: ${firstname} ${lastname}
-// Contact:
-// - Phone: ${contact.phone}
-// - Email: ${contact.email}
-// - LinkedIn: ${contact.linkedin}
-// - GitHub: ${contact.github}
-// Skills: ${skillsList}
-// Summary: ${bio}
-// Education: ${educationList}
-// Experience: ${experienceList}
-// Projects: ${projectsList}
-// `;
-
 const prompt = `
+
 Generate a sleek, compact, and responsive HTML5 resume template using the dynamic data provided for each section. Ensure that the design is visually appealing and utilizes modern web practices for responsiveness.
 
 ### Resume Structure:
@@ -121,6 +32,8 @@ Generate a sleek, compact, and responsive HTML5 resume template using the dynami
 6. **Education**: 
    - ${educationList}
 
+ADD DETAILS FROM YOUR SIDE USING THE ABOVE DETAILS
+
 ### HTML and CSS Formatting:
 - Use "<header>" for the user's name and basic details.
 - Use "<section>" for each part of the resume (contact info, summary, skills, experience, education, projects).
@@ -129,18 +42,6 @@ Generate a sleek, compact, and responsive HTML5 resume template using the dynami
 - Use "<ul>" and "<li>" elements for projects, ensuring clear separation.
 - Make sure the resume is fully mobile-responsive, employing media queries for better readability on smaller screens.
 - Include minimal, yet elegant CSS styling to enhance visual appeal while keeping it professional.
-
-### Final Output Format:
-Name: ${firstname} ${lastname}
-Contact:
-- Phone: ${contact.phone}
-- Email: ${contact.email}
-- LinkedIn: ${contact.linkedin}
-- GitHub: ${contact.github}
-Skills: ${skillsList}
-Summary: ${bio}
-Education: ${educationList}
-Experience: ${experienceList}
 
 Use the below given template as a reference
 
@@ -228,8 +129,7 @@ Use the below given template as a reference
         <section class="contact-info">
             <h2>Contact Information</h2>
             <p><strong>Phone:</strong> (+91) 9876543210</p>
-            <p><strong>Email:</strong> jyotiraditya.sharma@example.com</p>
-            <p><strong>Address:</strong> 123, Green Park, Delhi, India</p>
+            <p><strong>Email:</strong> mailto:jyotiraditya.sharma@example.com</p>
         </section>
 
         <section class="summary">
@@ -277,7 +177,6 @@ Use the below given template as a reference
 </html>
 
 `;
-
 
   const apiKey = process.env.OPENAI_API_KEY;
 

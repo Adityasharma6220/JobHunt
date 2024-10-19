@@ -210,62 +210,10 @@ export const generateResume = async (req, res) => {
     const validatedEducation = Array.isArray(education) ? education : [];
     const validatedExperience = Array.isArray(experience) ? experience : [];
 
-    // Create resume text dynamically
-    // const resumeText = `
-    // // <!DOCTYPE html>
-    // // <html lang="en">
-    // // <head>
-    // //     <meta charset="UTF-8">
-    // //     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    // //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    // //     <title>Resume</title>
-    // //     <style>
-    // //         body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-    // //         section { margin-bottom: 20px; }
-    // //         ul { padding: 0; margin: 0; }
-    // //         ul li { list-style: none; margin-bottom: 5px; }
-    // //         .skills { display: flex; flex-wrap: wrap; }
-    // //         .skills li { margin-right: 10px; }
-    // //     </style>
-    // // </head>
-    // // <body>
-    // //     <header>
-    // //         <h1>${firstname} ${lastname}</h1>
-    // //         <section>
-    // //             <h2>Contact:</h2>
-    // //             <ul>
-    // //                 <li>Phone: ${contact.phone}</li>
-    // //                 <li>Email: ${contact.email}</li>
-    // //                 <li>Address: undefined</li>
-    // //             </ul>
-    // //         </section>
-    // //         <section>
-    // //             <h2>Skills:</h2>
-    // //             <ul class="skills">
-    // //                 ${skills.map(skill => `<li>${skill}</li>`).join('')}
-    // //             </ul>
-    // //         </section>
-    // //         <section>
-    // //             <h2>Summary:</h2>
-    // //             <p>${bio}</p>
-    // //         </section>
-    // //         <section>
-    // //             <h2>Experience:</h2>
-    // //             <ul>
-    // //                 ${experience.map(exp => `<li>${exp.role} at ${exp.company} (${exp.duration})</li>`).join('')}
-    // //             </ul>
-    // //         </section>
-    // //         <section>
-    // //             <h2>Education:</h2>
-    // //             <ul>
-    // //                 ${education.map(edu => `<li>${edu.degree} from ${edu.institution} (${edu.year})</li>`).join('')}
-    // //             </ul>
-    // //         </section>
-    // //     </header>
-    // // </body>
-    // // </html>`;
-//  
-  const resumeText ="\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Resume</title>\n<style>\n  body {\n    font-family: Arial, sans-serif;\n    margin: 20px;\n  }\n  section {\n    margin-bottom: 15px;\n  }\n  ul {\n    padding: 0;\n    margin: 0;\n    list-style: none;\n    display: flex;\n    flex-wrap: wrap;\n  }\n  li {\n    margin-right: 10px;\n  }\n</style>\n</head>\n<body>\n  <header>\n    <h1>Jyotiraditya K Sharma</h1>\n    <p>Contact:</p>\n    <ul>\n      <li>Phone: 08869847016</li>\n      <li>Email: adityasharma6220@gmail.com</li>\n      <li>Address: undefined</li>\n    </ul>\n  </header>\n  \n  <section>\n    <h2>Summary</h2>\n    <p>bhu</p>\n  </section>\n  \n  <section>\n    <h2>Skills</h2>\n    <ul>\n      <li>HTML</li>\n      <li>CSS</li>\n      <li>JAVA</li>\n      <li>SALESFORCE</li>\n      <li>JS</li>\n    </ul>\n  </section>\n  \n  <section>\n    <h2>Experience</h2>\n    <p>bhhh at hbh (12)</p>\n  </section>\n  \n  <section>\n    <h2>Education</h2>\n    <p>bhh from bh (85)</p>\n  </section>\n</body>\n</html>\n```\nThis HTML template provides a basic and responsive layout for the provided resume data. Feel free to customize and enhance it further according to your needs."
+
+
+  const resumeText ="<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Resume - Jyotiraditya K Sharma</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f4f4f4;\n            color: #333;\n            font-size: 14px;\n        }\n        .container {\n            width: 85%;\n            margin: 20px auto;\n            background-color: #fff;\n            padding: 20px;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n        }\n        header {\n            text-align: center;\n            margin-bottom: 15px;\n        }\n        header h1 {\n            margin: 0;\n            font-size: 1.8em;\n            color: #2c3e50;\n        }\n        header p {\n            font-size: 1em;\n            color: #7f8c8d;\n        }\n        h2 {\n            font-size: 1.2em;\n            color: #2980b9;\n            border-bottom: 1px solid #2980b9;\n            padding-bottom: 3px;\n            margin-bottom: 10px;\n        }\n        ul {\n            list-style-type: none;\n            padding: 0;\n            margin: 0;\n        }\n        ul li {\n            margin-bottom: 5px;\n        }\n        .skills ul {\n            display: flex;\n            flex-wrap: wrap;\n        }\n        .skills li {\n            background-color: #ecf0f1;\n            padding: 5px 10px;\n            margin-right: 8px;\n            margin-bottom: 8px;\n            border-radius: 3px;\n        }\n        .contact-info, .summary, .skills, .experience, .education {\n            margin-bottom: 15px;\n        }\n        .experience li, .education li {\n            line-height: 1.4;\n        }\n        @media (max-width: 768px) {\n            .container {\n                width: 95%;\n            }\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <header>\n            <h1>Jyotiraditya K Sharma</h1>\n            <p>Web Developer | Salesforce Enthusiast</p>\n        </header>\n\n        <section class=\"contact-info\">\n            <h2>Contact Information</h2>\n            <p><strong>Phone:</strong> 08869847016</p>\n            <p><strong>Email:</strong> <a href=\"mailto:adityasharma6220@gmail.com\">adityasharma6220@gmail.com</a></p>\n        </section>\n\n        <section class=\"summary\">\n            <h2>Summary</h2>\n            <p>Highly skilled web developer with expertise in HTML, CSS, Java, Salesforce, and JavaScript (JS). Passionate about creating responsive and visually appealing web solutions.</p>\n        </section>\n\n        <section class=\"skills\">\n            <h2>Skills</h2>\n            <ul>\n                <li>HTML</li>\n                <li>CSS</li>\n                <li>Java</li>\n                <li>Salesforce</li>\n                <li>JavaScript (JS)</li>\n            </ul>\n        </section>\n\n        <section class=\"experience\">\n            <h2>Experience</h2>\n            <ul>\n                <li>\n                    <strong>Web Developer</strong> | ABC Company (Jan 2020 - Present)<br>\n                    - Led the development of innovative web applications.<br>\n                    - Implemented cutting-edge technologies for enhanced user experience.<br>\n                    - Collaborated with cross-functional teams to achieve project goals.\n                </li>\n            </ul>\n        </section>\n\n        <section class=\"education\">\n            <h2>Education</h2>\n            <ul>\n                <li>\n                    <strong>Bachelor of Technology in Computer Science</strong><br>\n                    XYZ University, Graduated in 2018.\n                </li>\n            </ul>\n        </section>\n    </div>\n</body>\n</html>"
+
 
     //   const resumeText = await generateResumeText({
     //   firstname,
