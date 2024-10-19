@@ -12,8 +12,7 @@ export const generateResumeText = async (user) => {
   const educationList = education.length > 0 ? education.map(edu => `${edu.degree} from ${edu.institution} (${edu.year})`).join('; ') : "No education listed";
 const experienceList = experience.length > 0 ? experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('; ') : "No experience listed";
 
-const prompt = `
-
+const prompt =`
 Generate a sleek, compact, and responsive HTML5 resume template using the dynamic data provided for each section. Ensure that the design is visually appealing and utilizes modern web practices for responsiveness.
 
 ### Resume Structure:
