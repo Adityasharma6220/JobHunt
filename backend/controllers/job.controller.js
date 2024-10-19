@@ -119,11 +119,17 @@ export const postJob = async (req, res) => {
             return sendResponse(res, 400, "Something is missing.");
         }
 
+        // Ensure salary is a number
+        const parsedSalary = parseFloat(salary); // Use parseFloat to handle string inputs
+        if (isNaN(parsedSalary)) {
+            return sendResponse(res, 400, "Salary must be a valid number.");
+        }
+
         const job = await Job.create({
             title,
             description,
             requirements: requirements.split(","),
-            salary: Number(salary),
+            salary: parsedSalary, // Save the parsed salary
             location,
             jobType,
             experienceLevel: experience,
@@ -138,6 +144,7 @@ export const postJob = async (req, res) => {
         return sendResponse(res, 500, "Internal server error.");
     }
 };
+
 
 // Student: Get all jobs
 export const getAllJobs = async (req, res) => {
