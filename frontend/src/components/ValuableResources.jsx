@@ -1,8 +1,15 @@
-import React from 'react'
-import yt from '../assets/yt.png'
-import discord from '../assets/discord.png'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import yt from '../assets/yt.png';
+import discord from '../assets/discord.png';
 
 const ValuableResources = () => {
+  const navigate = useNavigate();
+
+  const handleExploreClick = () => {
+    navigate('/career');
+  };
+
   return (
     <>
       <div className='max-w-7xl mx-auto my-20 p-10'>
@@ -48,7 +55,7 @@ const ValuableResources = () => {
             </a>
           </div>
 
-
+          {/* Join Community */}
           <div className='relative'>
             <h3 className='text-2xl font-bold hover:text-blue-800'>Join Community</h3>
             <p className='mt-4 hover:text-blue-800'>
@@ -57,7 +64,7 @@ const ValuableResources = () => {
               connections, share insights, and collaborate for mutual growth.
             </p>
 
-           
+            {/* Links with YouTube and Discord clickable images */}
             <div className='mt-4 flex justify-center gap-10'>
               <a 
                 href='https://www.youtube.com/' 
@@ -102,21 +109,18 @@ const ValuableResources = () => {
           </div>
         </div>
 
-        {/* Explore More Button linking to Dribbble Explore Page */}
+        {/* Explore More Button linking to CareerGuidance component */}
         <div className='text-center mt-10'>
-          <a 
-            href='https://dribbble.com/tags/explore-page' 
-            target='_blank' 
-            rel='noopener noreferrer'
+          <button 
+            onClick={handleExploreClick}
+            className='bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800'
           >
-            <button className='bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800'>
-              Explore More
-            </button>
-          </a>
+            Explore More
+          </button>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ValuableResources
+export default ValuableResources;

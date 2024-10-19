@@ -49,7 +49,7 @@ const appRouter = createBrowserRouter([
     element: <Browse />
   },
   {
-    path: '/career',  
+    path:'/career',  
     element: <CareerGuidance />,  // Fixed spelling
   },
   {
