@@ -67,7 +67,7 @@ const ValuableResources = () => {
             {/* Links with YouTube and Discord clickable images */}
             <div className='mt-4 flex justify-center gap-10'>
               <a 
-                href='https://www.youtube.com/' 
+                href='https://www.youtube.com/@CareerConnect-PS04' 
                 target='_blank' 
                 rel='noopener noreferrer'
               >
@@ -78,7 +78,7 @@ const ValuableResources = () => {
                 />
               </a>
               <a 
-                href='https://discord.com/' 
+                href='https://discord.gg/DHzBzBXedA/' 
                 target='_blank' 
                 rel='noopener noreferrer'
               >
