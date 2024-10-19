@@ -34,7 +34,7 @@ const Jobs = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5 p-4'>
+            <div className='max-w-7xl mx-auto mt-5 p-4 '>
                 <div className='flex flex-col md:flex-row gap-5'>
                     <div className='w-full md:w-1/4'>
                         <FilterCard />

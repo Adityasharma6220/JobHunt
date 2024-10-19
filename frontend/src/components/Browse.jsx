@@ -51,7 +51,7 @@ const Browse = () => {
             <Navbar />
 
             {/* Main Content */}
-            <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8'>
+            <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8 bg-gray-100'>
                 <div className='flex items-center justify-between'>
                     {/* Replace Browse with Search Icon */}
                     <h1 className='font-bold text-xl my-10 flex items-center'>
