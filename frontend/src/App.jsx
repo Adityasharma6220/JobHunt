@@ -21,6 +21,7 @@ import ResumePreview from './components/ResumePreview';
 import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
 import Testimonials from './components/Testimonials';
+import Networking from './components/Networking';
 
 
 const appRouter = createBrowserRouter([
@@ -51,6 +52,10 @@ const appRouter = createBrowserRouter([
   {
     path:'/career',  
     element: <CareerGuidance />,  // Fixed spelling
+  },
+  {
+    path:'/networking',  
+    element: <Networking />,  // Fixed spelling
   },
   {
     path: '/view-all',

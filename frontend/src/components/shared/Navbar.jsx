@@ -73,6 +73,7 @@ const Navbar = () => {
                 <li>
                   <Link to="/aptitude">AptitudeGame</Link>
                 </li>
+
                 <li>
                   <a
                     href="https://mock-interview.zapier.app/"
@@ -83,6 +84,9 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
+                <li> <Link to="/networking">Networking</Link> </li>
+                 
+                
               </>
             ) : (
               <>
@@ -111,6 +115,7 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
+                <li> <Link to="/networking">Networking</Link> </li>
               </>
             )}
           </ul>
