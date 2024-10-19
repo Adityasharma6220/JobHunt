@@ -30,8 +30,10 @@ const Navbar = () => {
       toast.error(error.response.data.message);
     }
   };
+
   return (
-    <div className="bg-white sticky top-0">
+    <div className="bg-white sticky top-0 z-50">
+      {/* z-50 ensures the Navbar is always on top */}
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
           <Link to="/">
@@ -77,8 +79,7 @@ const Navbar = () => {
                     AI Mock Interviews
                   </a>
                 </li>
-                <li><Link to ='/testimonial'>Testimonials</Link></li>
-                {/* <li><Link to="/resume-builder">Resume Builder</Link></li> */}
+                <li><Link to='/testimonial'>Testimonials</Link></li>
               </>
             ) : (
               <>
@@ -106,7 +107,7 @@ const Navbar = () => {
                     Mock-interview
                   </a>
                 </li>
-                <li><Link to ='/testimonial'>Testimonials</Link></li>
+                <li><Link to='/testimonial'>Testimonials</Link></li>
               </>
             )}
           </ul>
@@ -131,8 +132,8 @@ const Navbar = () => {
                   />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-80">
-                <div className="">
+              <PopoverContent className="w-80 z-50"> {/* z-50 for popover */}
+                <div>
                   <div className="flex gap-2 space-y-2">
                     <Avatar className="cursor-pointer">
                       <AvatarImage
@@ -154,12 +155,10 @@ const Navbar = () => {
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
                           <User2 />
                           <Button variant="link">
-                            {" "}
                             <Link to="/profile">View Profile</Link>
                           </Button>
                         </div>
                       )}
-
                     <div className="flex w-fit items-center gap-2 cursor-pointer">
                       <LogOut />
                       <Button onClick={logoutHandler} variant="link">
