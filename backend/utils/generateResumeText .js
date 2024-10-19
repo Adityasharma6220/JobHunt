@@ -121,8 +121,8 @@ Use the below given template as a reference
 <body>
     <div class="container">
         <header>
-            <h1>Jyotiraditya K Sharma</h1>
-            <p>Web Developer | Salesforce Enthusiast</p>
+            <h1></h1>
+            <p></p>
         </header>
 
         <section class="contact-info">
@@ -133,20 +133,20 @@ Use the below given template as a reference
 
         <section class="summary">
             <h2>Summary</h2>
-            <p>Web developer with expertise in front-end technologies like HTML, CSS, JavaScript, and experience working with Salesforce. Strong focus on performance optimization and responsive design.</p>
+            <p></p>
         </section>
 
         <section class="skills">
             <h2>Skills</h2>
             <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Java</li>
-                <li>Salesforce</li>
-                <li>JavaScript (JS)</li>
-                <li>Responsive Design</li>
-                <li>Git</li>
-                <li>APIs</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li> (JS)</li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </section>
 
