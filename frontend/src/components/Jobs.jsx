@@ -2,30 +2,35 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './shared/Navbar';
 import FilterCard from './FilterCard';
 import Job from './Job';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
 
 const Jobs = () => {
-    const { allJobs, searchedQuery } = useSelector(store => store.job); // Get all jobs and search query from Redux
+    const { allJobs, searchedQuery } = useSelector(store => store.job);
     const [filterJobs, setFilterJobs] = useState([]);
-
+    const dispatch = useDispatch();
+  
     useEffect(() => {
-        const filteredJobs = allJobs.filter((job) => {
-            // Check if job matches any of the selected filters
-            const matchesFilters = Object.keys(searchedQuery).every(filterType => {
-                const selectedValues = searchedQuery[filterType];
-                if (!selectedValues?.length) return true; // No filters applied for this type
-                return selectedValues.some(value => 
-                    job[filterType]?.toLowerCase().includes(value.toLowerCase())
-                );
-            });
-
-            return matchesFilters;
-        });
-
-        setFilterJobs(filteredJobs.length > 0 ? filteredJobs : allJobs); // Default to allJobs if none found
+      const filteredJobs = allJobs.filter(job => {
+        return job.company !== null && job.company !== undefined; // Ensure job has a valid company
+        // Additional filtering logic...
+      });
+  
+      const sortedJobs = filteredJobs.length > 0
+        ? [...filteredJobs].sort((a, b) => {
+            const nameA = a.company?.name || ""; // Fallback to empty string
+            const nameB = b.company?.name || ""; // Fallback to empty string
+            return nameA.localeCompare(nameB);
+          })
+        : [...allJobs].sort((a, b) => {
+            const nameA = a.company?.name || ""; // Fallback to empty string
+            const nameB = b.company?.name || ""; // Fallback to empty string
+            return nameA.localeCompare(nameB);
+          });
+  
+      setFilterJobs(sortedJobs);
     }, [allJobs, searchedQuery]);
-
+    
     return (
         <div>
             <Navbar />

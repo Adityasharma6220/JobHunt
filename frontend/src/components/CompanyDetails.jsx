@@ -12,7 +12,11 @@ const CompanyDetails = () => {
         const fetchCompany = async () => {
             try {
                 const response = await fetch(`/api/company/${id}`); // Adjust API call as necessary
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
+                console.log(data); // Log the data to check its structure
                 setCompany(data);
             } catch (error) {
                 console.error("Error fetching company details:", error);
@@ -22,7 +26,8 @@ const CompanyDetails = () => {
         fetchCompany();
     }, [id]);
 
-    if (!company) {
+    // Handle loading and empty company state
+    if (!company || Object.keys(company).length === 0) {
         return <div>Loading company details...</div>;
     }
 

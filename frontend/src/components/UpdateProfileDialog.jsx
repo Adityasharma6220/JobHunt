@@ -91,7 +91,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     id="name"
                                     name="name"
                                     type="text"
-                                    value={`${input.firstname} ${input.lastname}`}
+                                    value={input.firstname && input.lastname}
                                     onChange={changeEventHandler}
                                     className="col-span-3"
                                 />

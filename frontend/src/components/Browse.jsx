@@ -25,12 +25,24 @@ const Browse = () => {
 
     // Update filtered jobs when search term changes
     useEffect(() => {
-        const filtered = allJobs.filter((job) => 
-            job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (typeof job.company.name === 'string' && job.company.name.toLowerCase().includes(searchTerm.toLowerCase())) // Check if job.company is a string
-        );
-        setFilteredJobs(filtered);
+        const filtered = allJobs.filter((job) => {
+            // Ensure job.company is not null or undefined and job.company.name is a string
+            const companyName = job.company?.name || ''; // Fallback to an empty string if undefined
+            return (
+                job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                companyName.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        });
+
+        // Sort filtered jobs by company name in alphabetical order
+        const sortedFilteredJobs = filtered.sort((a, b) => {
+            const companyA = a.company?.name?.toLowerCase() || '';
+            const companyB = b.company?.name?.toLowerCase() || '';
+            return companyA.localeCompare(companyB);
+        });
+
+        setFilteredJobs(sortedFilteredJobs);
     }, [searchTerm, allJobs]);
 
     return (
@@ -46,7 +58,7 @@ const Browse = () => {
                         <Search 
                             className="mr-2 cursor-pointer" 
                             onClick={() => setSearchOpen(!searchOpen)} 
-                        /> {/* Search icon, toggles input */}
+                        />
                         Search Results ({filteredJobs.length})
                     </h1>
                 </div>
