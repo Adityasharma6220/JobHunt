@@ -1,4 +1,6 @@
 import React from 'react'
+import yt from '../assets/yt.png'
+import discord from '../assets/discord.png'
 
 const ValuableResources = () => {
   return (
@@ -46,7 +48,7 @@ const ValuableResources = () => {
             </a>
           </div>
 
-          {/* Join Community */}
+
           <div className='relative'>
             <h3 className='text-2xl font-bold hover:text-blue-800'>Join Community</h3>
             <p className='mt-4 hover:text-blue-800'>
@@ -55,23 +57,29 @@ const ValuableResources = () => {
               connections, share insights, and collaborate for mutual growth.
             </p>
 
-            {/* Links for YouTube and LinkedIn */}
-            <div className='mt-4'>
+           
+            <div className='mt-4 flex justify-center gap-10'>
               <a 
                 href='https://www.youtube.com/' 
                 target='_blank' 
                 rel='noopener noreferrer'
-                className='text-black-600 font-bold hover:text-blue-800 block'
               >
-                YouTube
+                <img 
+                  src={yt}
+                  alt='YouTube' 
+                  className='w-45 h-32 hover:opacity-85 transition-opacity duration-200'
+                />
               </a>
               <a 
-                href='https://www.linkedin.com/' 
+                href='https://discord.com/' 
                 target='_blank' 
                 rel='noopener noreferrer'
-                className='text-black-600 font-bold hover:text-blue-800 block'
               >
-                LinkedIn
+                <img 
+                  src={discord}
+                  alt='Discord' 
+                  className='w-45 h-32 hover:opacity-75 transition-opacity duration-200'
+                />
               </a>
             </div>
           </div>

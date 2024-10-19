@@ -68,6 +68,9 @@ const Navbar = () => {
                   <Link to="/career">Career Guidance</Link>
                 </li>
                 <li>
+                  <Link to='/resume-builder'>Resume Builder</Link>
+                </li>
+                <li>
                   <Link to="/aptitude">AptitudeGame</Link>
                 </li>
                 <li>
