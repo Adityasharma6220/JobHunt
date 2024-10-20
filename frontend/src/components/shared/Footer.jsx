@@ -4,18 +4,18 @@ import { faYoutube, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-t-gray-200 py-8">
+    <footer className="border-t border-t-gray-200 py-8 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h2 className="text-xl font-bold">Career Connect</h2>
-            <p className="text-sm">© 2024 Your Company. All rights reserved.</p>
+            <p className="text-sm text-gray-600">© 2024 Your Company. All rights reserved.</p>
           </div>
           
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a 
               href="https://www.youtube.com/@CareerConnect-PS04" 
-              className="hover:text-gray-400" 
+              className="hover:text-gray-400 transition-colors duration-300" 
               aria-label="YouTube"
               target="_blank" 
               rel="noopener noreferrer"
@@ -24,7 +24,7 @@ const Footer = () => {
             </a>
             <a 
               href="https://discord.gg/DHzBzBXedA" 
-              className="hover:text-gray-400" 
+              className="hover:text-gray-400 transition-colors duration-300" 
               aria-label="Discord"
               target="_blank" 
               rel="noopener noreferrer"

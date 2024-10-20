@@ -94,6 +94,7 @@ const Login = () => {
                                     type="radio"
                                     name="role"
                                     value="student"
+                                    id ="r1"
                                     checked={input.role === 'student'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
@@ -105,6 +106,7 @@ const Login = () => {
                                     type="radio"
                                     name="role"
                                     value="recruiter"
+                                    id ="r2"
                                     checked={input.role === 'recruiter'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
@@ -116,6 +118,7 @@ const Login = () => {
                                     type="radio"
                                     name="role"
                                     value="domesticworker"
+                                    id ="r3"
                                     checked={input.role === 'domesticworker'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
