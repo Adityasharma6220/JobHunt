@@ -18,11 +18,11 @@ const HeroSection = () => {
     return (
         <div className='text-center px-4'> {/* Added padding on sides for mobile */}
             <div className='flex flex-col gap-5 my-10'>
-                <span className='mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium'>
+                <span className='mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#1f02f8] font-medium'>
                     No. 1 Job Hunt Website
                 </span>
                 <h1 className='text-3xl md:text-5xl font-bold'> {/* Responsive font size */}
-                    Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Dream Jobs</span>
+                Discover,Pursue,<br /> And <span className='text-[#6A38C2]'>Land Your Career!</span>
                 </h1>
                
                 <div className='flex w-full md:w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto'>
