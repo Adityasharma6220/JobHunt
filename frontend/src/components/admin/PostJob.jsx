@@ -17,6 +17,7 @@ const PostJob = () => {
     const [input, setInput] = useState({
         title: "",
         description: "",
+        industry:"",
         requirements: "",
         salary: "",
         location: "",
@@ -81,6 +82,16 @@ const PostJob = () => {
                                 type="text"
                                 name="description"
                                 value={input.description}
+                                onChange={changeEventHandler}
+                                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
+                            />
+                        </div>
+                        <div>
+                            <Label>Industry</Label>
+                            <Input
+                                type="text"
+                                name="industry"
+                                value={input.industry}
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
                             />

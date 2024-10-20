@@ -1,29 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setSearchedQuery } from '@/redux/jobSlice';
+import { setSearchedQuery } from '@/redux/jobSlice'; // Import the action
 
 const filterData = [
-  { filterType: "Location", array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"] },
+  { filterType: "Location", array: ["Delhi", "Noida","Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai", "Rajkot"] },
   { filterType: "Industry", array: ["Healthcare", "Engineering", "Information Technology", "Education", "Business and Finance"] },
-  { filterType: "Department", array: ["Production, Manufacturing & Engineering", "Sales & Business Development", "Finance & Accounting"] },
-  { filterType: "Experience", array: ["Experienced", "Entry Level"] },
-  { filterType: "Nature of Business", array: ["B2B", "B2C", "SaaS", "D2C"] },
-  { filterType: "Job Posting Date", array: ["< 7 Days", "< 15 Days"] },
+  { filterType: "Role", array: ["Software Development Engineer", "Marketing Manager", "Business", "Quality Assurance Manager", "Sales Executive", "Hospital Administrator"] },
+  { filterType: "Salary", array: ["8", "7", "9"] },
+  { filterType: "Experience", array: ["Experienced", "Entry Level", "3-6 years", "5-7 years", "2-4 years", "5+ years", "1-2 years", "1-3 years", "0-2 years", "1-4 years"] },
+  { filterType: "Job Type", array: ["Full-time", "Part-time"] },
+  { filterType: "Job Post", array: ["< 1 Days","< 2 Days","< 3 Days","< 4 Days","< 5 Days","< 6 Days","< 7 Days"] },
 ];
 
 const FilterCard = () => {
   const [selectedFilters, setSelectedFilters] = useState({});
   const dispatch = useDispatch();
 
-  const changeHandler = (filterType, value) => {
-    setSelectedFilters(prevState => ({
-      ...prevState,
-      [filterType]: value
-    }));
+  // Function to handle change events for filter checkboxes
+  const changeHandler = (filterType, value, isChecked) => {
+    setSelectedFilters(prevFilters => {
+      const currentFilter = prevFilters[filterType] || []; // Get current selections for the filterType
+      let updatedFilter;
+
+      if (isChecked) {
+        // Add the selected value to the filter
+        updatedFilter = [...currentFilter, value];
+      } else {
+        // Remove the unselected value from the filter
+        updatedFilter = currentFilter.filter(item => item !== value);
+      }
+
+      // Return a new state object with the updated filter
+      return {
+        ...prevFilters,
+        [filterType]: updatedFilter
+      };
+    });
   };
 
   useEffect(() => {
-    dispatch(setSearchedQuery(selectedFilters)); // Dispatch selected filters to Redux
+    // Dispatch the updated filters to the Redux store whenever selectedFilters change
+    dispatch(setSearchedQuery(selectedFilters));
   }, [selectedFilters, dispatch]);
 
   return (
@@ -38,21 +55,16 @@ const FilterCard = () => {
               {
                 data.array.map((item, idx) => {
                   const itemId = `id${index}-${idx}`;
+                  const isChecked = selectedFilters[data.filterType]?.includes(item) || false;
+
                   return (
                     <div className='flex items-center space-x-2 my-2' key={itemId}>
                       <input
                         type='checkbox'
                         id={itemId}
                         value={item}
-                        checked={selectedFilters[data.filterType]?.includes(item) || false}
-                        onChange={(e) => {
-                          const selectedItems = selectedFilters[data.filterType] || [];
-                          if (e.target.checked) {
-                            changeHandler(data.filterType, [...selectedItems, item]);
-                          } else {
-                            changeHandler(data.filterType, selectedItems.filter(i => i !== item));
-                          }
-                        }}
+                        checked={isChecked}
+                        onChange={(e) => changeHandler(data.filterType, item, e.target.checked)}
                       />
                       <label htmlFor={itemId}>{item}</label>
                     </div>

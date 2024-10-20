@@ -20,7 +20,7 @@ const Home = () => {
   }, [user, navigate]); // Added user and navigate to the dependency array
 
   return (
-    <div className="bg-gray-100 min-h-screen"> {/* Set the background color here */}
+    <div className=" min-h-screen"> {/* Set the background color here */}
       <Navbar />
       <HeroSection />
       <CategoryCarousel />

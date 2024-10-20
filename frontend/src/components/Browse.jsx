@@ -5,16 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { motion } from 'framer-motion';
-import { Search } from 'lucide-react'; // Search icon from lucide-react
+import { Search } from 'lucide-react';
 
 const Browse = () => {
-    useGetAllJobs(); // Hook to get all jobs
+    useGetAllJobs(); 
     const { allJobs } = useSelector(store => store.job);
     const dispatch = useDispatch();
 
-    const [searchOpen, setSearchOpen] = useState(false); // Toggle search input visibility
-    const [searchTerm, setSearchTerm] = useState(""); // Search input state
-    const [filteredJobs, setFilteredJobs] = useState(allJobs); // Filtered jobs
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState(""); 
+    const [filteredJobs, setFilteredJobs] = useState(allJobs);
+    const [savedJobs, setSavedJobs] = useState([]); // Add savedJobs state
 
     // Clear search query on unmount
     useEffect(() => {
@@ -26,8 +27,7 @@ const Browse = () => {
     // Update filtered jobs when search term changes
     useEffect(() => {
         const filtered = allJobs.filter((job) => {
-            // Ensure job.company is not null or undefined and job.company.name is a string
-            const companyName = job.company?.name || ''; // Fallback to an empty string if undefined
+            const companyName = job.company?.name || '';
             return (
                 job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -35,7 +35,6 @@ const Browse = () => {
             );
         });
 
-        // Sort filtered jobs by company name in alphabetical order
         const sortedFilteredJobs = filtered.sort((a, b) => {
             const companyA = a.company?.name?.toLowerCase() || '';
             const companyB = b.company?.name?.toLowerCase() || '';
@@ -47,13 +46,10 @@ const Browse = () => {
 
     return (
         <div>
-            {/* Navbar */}
             <Navbar />
 
-            {/* Main Content */}
-            <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8 bg-gray-100'>
+            <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8'>
                 <div className='flex items-center justify-between'>
-                    {/* Replace Browse with Search Icon */}
                     <h1 className='font-bold text-xl my-10 flex items-center'>
                         <Search 
                             className="mr-2 cursor-pointer" 
@@ -63,7 +59,6 @@ const Browse = () => {
                     </h1>
                 </div>
 
-                {/* Conditionally render search input */}
                 {searchOpen && (
                     <div className="mb-6">
                         <input
@@ -76,7 +71,6 @@ const Browse = () => {
                     </div>
                 )}
 
-                {/* Grid for Job Cards */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                     {filteredJobs.length > 0 ? (
                         filteredJobs.map((job) => (
@@ -88,7 +82,11 @@ const Browse = () => {
                                 transition={{ duration: 0.3 }}
                                 key={job._id}
                             >
-                                <Job job={job} />
+                                <Job 
+                                    job={job} 
+                                    savedJobs={savedJobs} // Pass savedJobs
+                                    setSavedJobs={setSavedJobs} // Pass setSavedJobs
+                                />
                             </motion.div>
                         ))
                     ) : (

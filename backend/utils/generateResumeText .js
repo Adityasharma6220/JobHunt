@@ -133,20 +133,20 @@ Use the below given template as a reference
 
         <section class="summary">
             <h2>Summary</h2>
-            <p></p>
+            <p>Web developer with expertise in front-end technologies like HTML, CSS, JavaScript, and experience working with Salesforce. Strong focus on performance optimization and responsive design.</p>
         </section>
 
         <section class="skills">
             <h2>Skills</h2>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li> (JS)</li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Java</li>
+                <li>Salesforce</li>
+                <li>JavaScript (JS)</li>
+                <li>Responsive Design</li>
+                <li>Git</li>
+                <li>APIs</li>
             </ul>
         </section>
 
