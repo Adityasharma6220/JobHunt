@@ -111,11 +111,11 @@ const sendResponse = (res, status, message, data = {}) => {
 // Admin: Post a new job
 export const postJob = async (req, res) => {
     try {
-        const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
+        const { title, description, industry,requirements, salary, location, jobType, experience, position, companyId } = req.body;
         const userId = req.id;
 
         // Validation check
-        if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
+        if (!title || !description || !industry ||!requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
             return sendResponse(res, 400, "Something is missing.");
         }
 
@@ -128,6 +128,7 @@ export const postJob = async (req, res) => {
         const job = await Job.create({
             title,
             description,
+            industry,
             requirements: requirements.split(","),
             salary: parsedSalary, // Save the parsed salary
             location,
