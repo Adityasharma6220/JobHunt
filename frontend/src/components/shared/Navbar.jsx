@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-white sticky top-0 z-50">
-      {/* z-50 ensures the Navbar is always on top */}
+  
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
         <div>
           <Link to="/">
@@ -103,7 +103,7 @@ const Navbar = () => {
                   <Link to="/career">Career Guidance</Link>
                 </li>
               
-                <li>
+                {/* <li>
                   <a
                     href="https://mock-interview.zapier.app/"
                     target="_blank"
@@ -111,9 +111,9 @@ const Navbar = () => {
                   >
                     Mock-interview
                   </a>
-                </li>
-                <li><Link to='/testimonial'>Testimonials</Link></li>
-                <li> <Link to="/networking">Networking</Link> </li>
+                </li> */}
+                {/* <li><Link to='/testimonial'>Testimonials</Link></li> */}
+                {/* <li> <Link to="/networking">Networking</Link> </li> */}
                 <li><Link to='/JobMapComponent'>JobMap</Link></li>
                 <li><Link to='/HotlinePage'>HelpLine</Link></li>
                

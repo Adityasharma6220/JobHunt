@@ -4,14 +4,14 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 
 const CompanyDetails = () => {
-    const { id } = useParams(); // Get the company ID from the URL params
+    const { id } = useParams(); 
     const [company, setCompany] = useState(null);
 
     useEffect(() => {
         // Fetch the company details using the ID
         const fetchCompany = async () => {
             try {
-                const response = await fetch(`/api/company/${id}`); // Adjust API call as necessary
+                const response = await fetch(`/api/company/${id}`); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

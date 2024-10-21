@@ -16,12 +16,12 @@ const HeroSection = () => {
     }
 
     return (
-        <div className='text-center px-4'> {/* Added padding on sides for mobile */}
+        <div className='text-center px-4'> 
             <div className='flex flex-col gap-5 my-10'>
                 <span className='mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#1f02f8] font-medium'>
                     No. 1 Job Hunt Website
                 </span>
-                <h1 className='text-3xl md:text-5xl font-bold'> {/* Responsive font size */}
+                <h1 className='text-3xl md:text-5xl font-bold'>
                 Discover,Pursue,<br /> And <span className='text-[#6A38C2]'>Land Your Career!</span>
                 </h1>
                
@@ -30,7 +30,7 @@ const HeroSection = () => {
                         type="text"
                         placeholder='Find your dream jobs'
                         onChange={(e) => setQuery(e.target.value)}
-                        className='outline-none border-none w-full py-2' // Added padding for better touch target
+                        className='outline-none border-none w-full py-2' 
                     />
                     <Button onClick={searchJobHandler} className="rounded-r-full bg-[#6A38C2]">
                         <Search className='h-5 w-5' />

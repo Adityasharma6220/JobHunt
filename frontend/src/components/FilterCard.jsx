@@ -19,18 +19,17 @@ const FilterCard = () => {
   // Function to handle change events for filter checkboxes
   const changeHandler = (filterType, value, isChecked) => {
     setSelectedFilters(prevFilters => {
-      const currentFilter = prevFilters[filterType] || []; // Get current selections for the filterType
+      const currentFilter = prevFilters[filterType] || []; e
       let updatedFilter;
 
       if (isChecked) {
-        // Add the selected value to the filter
+        
         updatedFilter = [...currentFilter, value];
       } else {
-        // Remove the unselected value from the filter
+        
         updatedFilter = currentFilter.filter(item => item !== value);
       }
 
-      // Return a new state object with the updated filter
       return {
         ...prevFilters,
         [filterType]: updatedFilter
@@ -39,7 +38,7 @@ const FilterCard = () => {
   };
 
   useEffect(() => {
-    // Dispatch the updated filters to the Redux store whenever selectedFilters change
+   
     dispatch(setSearchedQuery(selectedFilters));
   }, [selectedFilters, dispatch]);
 
