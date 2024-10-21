@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navbar from './shared/Navbar';
 
 const JobMapComponent = () => {
   const [location, setLocation] = useState('');
@@ -17,11 +18,27 @@ const JobMapComponent = () => {
   };
 
   return (
-    <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4">Job Search Map</h2>
+    <div>
+      <Navbar />
+      <div className="p-8 flex flex-col items-center">
+        <h2 className="text-2xl font-bold mb-4">Job Search Map</h2>
 
-      <div className="flex">
-        <div className="w-2/3">
+        {/* Centered Input Field */}
+        <div className="mb-4 text-center">
+          <h3 className="mb-2">Enter your location</h3>
+          <input
+            type="text"
+            value={location}
+            onChange={handleLocationChange}
+            placeholder="Enter location"
+            className="border p-2 mb-2 w-full max-w-xs" // Added max-width for better appearance
+          />
+          <button onClick={fetchLocation} className="bg-blue-500 text-white p-2 rounded">
+            Find Location
+          </button>
+        </div>
+
+        <div className="relative w-full">
           <div className="mapouter">
             <div className="gmap_canvas">
               <iframe
@@ -31,30 +48,16 @@ const JobMapComponent = () => {
                 marginHeight="0"
                 marginWidth="0"
                 src={mapSrc}
-                style={{ width: '100%', height: '400px', border: 0 }}
+                style={{ width: '100%', height: '500px', border: 0 }} // Increased height for the map
               />
               <a href="https://embed-googlemap.com">embed google map</a>
             </div>
             <style>{`
-              .mapouter { position: relative; text-align: right; width: 100%; height: 400px; }
-              .gmap_canvas { overflow: hidden; background: none !important; width: 100%; height: 400px; }
-              .gmap_iframe { width: 100% !important; height: 400px !important; }
+              .mapouter { position: relative; text-align: right; width: 100%; height: 500px; }
+              .gmap_canvas { overflow: hidden; background: none !important; width: 100%; height: 500px; }
+              .gmap_iframe { width: 100% !important; height: 500px !important; }
             `}</style>
           </div>
-        </div>
-
-        <div className="w-1/3 p-4">
-          <h3>Enter your location</h3>
-          <input
-            type="text"
-            value={location}
-            onChange={handleLocationChange}
-            placeholder="Enter location"
-            className="border p-2 mb-2 w-full"
-          />
-          <button onClick={fetchLocation} className="bg-blue-500 text-white p-2 rounded">
-            Find Location
-          </button>
         </div>
       </div>
     </div>
@@ -62,3 +65,4 @@ const JobMapComponent = () => {
 };
 
 export default JobMapComponent;
+    
