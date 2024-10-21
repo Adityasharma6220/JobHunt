@@ -32,7 +32,7 @@ const ResumeBuilder = () => {
         const { name, value } = e.target;
 
         if (name === "skills") {
-            // Allow splitting based on both commas and spaces
+           
             const skillsArray = value.split(/[\s,]+/).map(skill => skill.trim()).filter(skill => skill !== '');
 
             setInput(prevInput => ({
@@ -166,7 +166,7 @@ const ResumeBuilder = () => {
                         type="text"
                         name="skills"
                         placeholder="Skills (comma or space-separated)"
-                        value={input.profile.skills.join(', ')}
+                        value={input.profile.skills.join('')}
                         onChange={handleChange}
                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />

@@ -21,13 +21,16 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
 
     const handleBookmark = () => {
         if (savedJobs.some(savedJob => savedJob._id === job._id)) {
-            setSavedJobs(savedJobs.filter(savedJob => savedJob._id !== job._id));
-            setShowBookmarkPopup(false); // Close popup when unbookmarking
+          // Unbookmark the job
+          setSavedJobs(savedJobs.filter(savedJob => savedJob._id !== job._id));
+          setShowBookmarkPopup(false); 
         } else {
-            setSavedJobs([...savedJobs, job]);
-            setShowBookmarkPopup(true); // Show popup when bookmarking
+          // Bookmark the job
+          setSavedJobs([...savedJobs, job]);
+          setShowBookmarkPopup(true);
         }
-    };
+      };
+      
 
     const handleReport = () => {
         if (isReported) {
@@ -79,7 +82,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
 
                 <div>
                     <h1 className='font-medium text-lg my-2 overflow-hidden overflow-ellipsis line-clamp-2'>{job?.title}</h1>
-                    <p className='text-sm text-[#6A38C2] text-gray-600 line-clamp-3'>{job?.description}</p>
+                    <p className='text-sm text-[#6A38C2] line-clamp-3'>{job?.description}</p>
                 </div>
 
                 <div className='flex flex-wrap gap-2 mt-4'>

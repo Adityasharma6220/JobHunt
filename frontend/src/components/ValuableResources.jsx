@@ -70,7 +70,7 @@ const ValuableResources = () => {
               />
             </a>
             <a 
-              href='https://discord.gg/DHzBzBXedA/' 
+              href='https://discord.gg/DHzBzBXedA' 
               target='_blank' 
               rel='noopener noreferrer'
             >

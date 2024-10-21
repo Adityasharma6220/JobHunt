@@ -85,6 +85,8 @@ const Navbar = () => {
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
                 <li> <Link to="/networking">Networking</Link> </li>
+                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */}
+                
                  
                 
               </>
@@ -159,7 +161,7 @@ const Navbar = () => {
                   <div className="flex flex-col my-2 text-gray-600">
                     {user &&
                       (user.role === "student" ||
-                        user.role === "domesticwokrer") && (
+                        user.role === "domesticworker") && (
                         <div className="flex w-fit items-center gap-2 cursor-pointer">
                           <User2 />
                           <Button variant="link">

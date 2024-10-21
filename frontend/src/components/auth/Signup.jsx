@@ -178,8 +178,8 @@ const Signup = () => {
                                 <Input
                                     type="radio"
                                     name="role"
-                                    value="domesticwokrer"
-                                    checked={input.role === 'domesticwokrer'}
+                                    value="domesticworker"
+                                    checked={input.role === 'domesticworker'}
                                     onChange={changeEventHandler}
                                     className="cursor-pointer"
                                     id="r3"

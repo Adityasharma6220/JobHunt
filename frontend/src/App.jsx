@@ -22,6 +22,7 @@ import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
 import Testimonials from './components/Testimonials';
 import Networking from './components/Networking';
+import SavedJobsList from './components/SavedJobsList';
 
 
 const appRouter = createBrowserRouter([
@@ -61,6 +62,11 @@ const appRouter = createBrowserRouter([
     path: '/view-all',
     element: <ViewAll />,  // Added View All route
   },
+  // {
+  //   path: '/savedjob',
+  //   element: <SavedJobsList/>,  // Added View All route
+  // },
+
   {
     path: '/profile',
     element: <Profile />
