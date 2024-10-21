@@ -20,7 +20,7 @@ const ValuableResources = () => {
       </p>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 text-center'>
-        {/* Portfolio Creation */}
+        
         <div className='relative border-t-2 border-black pt-4'>
           <h3 className='text-xl sm:text-2xl font-bold hover:text-blue-800 transition-colors duration-200 cursor-pointer'>Portfolio Creation</h3>
           <p className='mt-2 sm:mt-4 hover:text-blue-800 transition-colors duration-200'>
