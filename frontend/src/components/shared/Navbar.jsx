@@ -102,9 +102,7 @@ const Navbar = () => {
                 <li>
                   <Link to="/career">Career Guidance</Link>
                 </li>
-                <li>
-                  <Link to="/aptitude">AptitudeGame</Link>
-                </li>
+              
                 <li>
                   <a
                     href="https://mock-interview.zapier.app/"
