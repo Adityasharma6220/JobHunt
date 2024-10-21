@@ -1,15 +1,16 @@
 import Navbar from "./shared/Navbar";
+import hotline from '../assets/help.jpg'
 
 const HotlinePage = () => {
   return (
     <div>
       <Navbar />
       <div className="p-8">
-        {/* Add an image here */}
+       
         <img
-          src="https://via.placeholder.com/600x200.png?text=Hotline+Information" // Replace this with your image URL
+          src={hotline} 
           alt="Hotline Information"
-          className="w-full mb-4 rounded"
+          className="w-84 mb-4 rounded"
         />
         <h2 className="text-2xl font-bold mb-4">Hotline Information</h2>
         <p className="mb-2">If you need assistance or help, please contact our hotline:</p>
