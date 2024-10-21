@@ -85,12 +85,43 @@ const Navbar = () => {
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
                 <li> <Link to="/networking">Networking</Link> </li>
-                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */}
-                
-                 
+                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */} 
                 
               </>
-            ) : (
+            ) : user && user.role === "domesticworker" ? (
+              <>
+              <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/jobs">Jobs</Link>
+                </li>
+                <li>
+                  <Link to="/browse">Browse</Link>
+                </li>
+                <li>
+                  <Link to="/career">Career Guidance</Link>
+                </li>
+                <li>
+                  <Link to="/aptitude">AptitudeGame</Link>
+                </li>
+                <li>
+                  <a
+                    href="https://mock-interview.zapier.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mock-interview
+                  </a>
+                </li>
+                <li><Link to='/testimonial'>Testimonials</Link></li>
+                <li> <Link to="/networking">Networking</Link> </li>
+                <li><Link to='/JobMapComponent'>JobMapComponent</Link></li>
+                <li><Link to='/HotlinePage'>HotlinePage</Link></li>
+               
+              </>
+            ):
+            (
               <>
                 <li>
                   <Link to="/">Home</Link>
