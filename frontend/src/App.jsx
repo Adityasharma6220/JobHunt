@@ -22,7 +22,9 @@ import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
 import Testimonials from './components/Testimonials';
 import Networking from './components/Networking';
-import SavedJobsList from './components/SavedJobsList';
+// import SavedJobsList from './components/SavedJobsList';
+import JobMapComponent from './components/JobMapComponent';
+import HotlinePage from './components/HotlinePage';
 
 
 const appRouter = createBrowserRouter([
@@ -66,7 +68,6 @@ const appRouter = createBrowserRouter([
   //   path: '/savedjob',
   //   element: <SavedJobsList/>,  // Added View All route
   // },
-
   {
     path: '/profile',
     element: <Profile />
@@ -91,7 +92,14 @@ const appRouter = createBrowserRouter([
     path: '/testimonial',  // Company details route
     element: <Testimonials /> // Render CompanyDetails component
   },
- 
+  {
+    path: '/JobMapComponent',  // Company details route
+    element: <JobMapComponent/> // Render CompanyDetails component
+  },
+  {
+    path: '/HotlinePage',  // Company details route
+    element: <HotlinePage/> // Render CompanyDetails component
+  },
   // Admin routes
   {
     path: '/admin/companies',
