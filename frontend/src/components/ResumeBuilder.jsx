@@ -33,13 +33,13 @@ const ResumeBuilder = () => {
 
         if (name === "skills") {
            
-            const skillsArray = value.split(/[\s,]+/).map(skill => skill.trim()).filter(skill => skill !== '');
+            // const skillsArray = value.split(/[\s,]+/).map(skill => skill.trim()).filter(skill => skill !== '');
 
             setInput(prevInput => ({
                 ...prevInput,
                 profile: {
                     ...prevInput.profile,
-                    skills: skillsArray
+                    skills: value
                 }
             }));
         } else if (name === "bio") {
@@ -128,6 +128,7 @@ const ResumeBuilder = () => {
                     <input
                         type="text"
                         name="firstname"
+                        required = "true"
                         placeholder="First Name"
                         value={input.firstname}
                         onChange={handleChange}
@@ -136,6 +137,7 @@ const ResumeBuilder = () => {
                     <input
                         type="text"
                         name="lastname"
+                        required = "true"
                         placeholder="Last Name"
                         value={input.lastname}
                         onChange={handleChange}
@@ -155,6 +157,7 @@ const ResumeBuilder = () => {
                     <input
                         type="email"
                         name="email"
+                        required = "true"
                         placeholder="Email Address"
                         value={input.contact.email}
                         onChange={handleChange}
@@ -166,12 +169,13 @@ const ResumeBuilder = () => {
                         type="text"
                         name="skills"
                         placeholder="Skills (comma or space-separated)"
-                        value={input.profile.skills.join('')}
+                        value={input.profile.skills}
                         onChange={handleChange}
                         className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <textarea
                         name="bio"
+                        required = "true"
                         placeholder="Bio"
                         value={input.profile.bio}
                         onChange={handleChange}
@@ -185,6 +189,7 @@ const ResumeBuilder = () => {
                             <input
                                 type="text"
                                 placeholder="Degree"
+                                required = "true"
                                 value={edu.degree}
                                 onChange={(e) => handleNestedChange(e, index, 'degree', 'education')}
                                 className="w-full p-3 border border-gray-300 rounded-lg"
@@ -192,6 +197,7 @@ const ResumeBuilder = () => {
                             <input
                                 type="text"
                                 placeholder="Institution"
+                                required = "true"
                                 value={edu.institution}
                                 onChange={(e) => handleNestedChange(e, index, 'institution', 'education')}
                                 className="w-full p-3 border border-gray-300 rounded-lg"
@@ -229,6 +235,7 @@ const ResumeBuilder = () => {
                             <input
                                 type="text"
                                 placeholder="Company"
+                                required = "true"
                                 value={exp.company}
                                 onChange={(e) => handleNestedChange(e, index, 'company', 'experience')}
                                 className="w-full p-3 border border-gray-300 rounded-lg"
