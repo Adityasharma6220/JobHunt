@@ -28,7 +28,7 @@ const Networking = () => {
 
         {/* Discord Card */}
         <div className="bg-white rounded-lg shadow-lg w-1/2 flex flex-col items-center overflow-hidden">
-          <a href="https://discord.gg/DHzBzBXedA" target="_blank" rel="noopener noreferrer" className="w-full h-full">
+          <a href="https://discord.gg/uRwKpZStZF" target="_blank" rel="noopener noreferrer" className="w-full h-full">
             <img 
               src={discord} 
               alt="Discord Channel" 
