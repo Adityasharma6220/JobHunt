@@ -175,7 +175,7 @@ const ResumeBuilder = () => {
                     />
                     <textarea
                         name="bio"
-                        required = "true"
+                    
                         placeholder="Bio"
                         value={input.profile.bio}
                         onChange={handleChange}
@@ -235,7 +235,7 @@ const ResumeBuilder = () => {
                             <input
                                 type="text"
                                 placeholder="Company"
-                                required = "true"
+                               
                                 value={exp.company}
                                 onChange={(e) => handleNestedChange(e, index, 'company', 'experience')}
                                 className="w-full p-3 border border-gray-300 rounded-lg"
