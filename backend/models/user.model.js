@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type:String,
-        enum:['student','recruiter',"domesticwokrer"],
+        enum:['student','recruiter',"domesticworker"],
         required:true
     },
     resumeData: {

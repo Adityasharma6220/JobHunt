@@ -213,20 +213,20 @@ export const generateResume = async (req, res) => {
     // Create resume text dynamically
 
     
-const resumeText =""
+// const resumeText =""
 
 
   // const resumeText ="\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Resume</title>\n<style>\n  body {\n    font-family: Arial, sans-serif;\n    margin: 20px;\n  }\n  section {\n    margin-bottom: 15px;\n  }\n  ul {\n    padding: 0;\n    margin: 0;\n    list-style: none;\n    display: flex;\n    flex-wrap: wrap;\n  }\n  li {\n    margin-right: 10px;\n  }\n</style>\n</head>\n<body>\n  <header>\n    <h1>Jyotiraditya K Sharma</h1>\n    <p>Contact:</p>\n    <ul>\n      <li>Phone: 08869847016</li>\n      <li>Email: adityasharma6220@gmail.com</li>\n      <li>Address: undefined</li>\n    </ul>\n  </header>\n  \n  <section>\n    <h2>Summary</h2>\n    <p>bhu</p>\n  </section>\n  \n  <section>\n    <h2>Skills</h2>\n    <ul>\n      <li>HTML</li>\n      <li>CSS</li>\n      <li>JAVA</li>\n      <li>SALESFORCE</li>\n      <li>JS</li>\n    </ul>\n  </section>\n  \n  <section>\n    <h2>Experience</h2>\n    <p>bhhh at hbh (12)</p>\n  </section>\n  \n  <section>\n    <h2>Education</h2>\n    <p>bhh from bh (85)</p>\n  </section>\n</body>\n</html>\n```\nThis HTML template provides a basic and responsive layout for the provided resume data. Feel free to customize and enhance it further according to your needs."
 
-    //   const resumeText = await generateResumeText({
-    //   firstname,
-    //   lastname,
-    //   contact,   
-    //   skills,
-    //   bio,
-    //   education : validatedEducation,
-    //   experience : validatedExperience
-    // });
+      const resumeText = await generateResumeText({
+      firstname,
+      lastname,
+      contact,   
+      skills,
+      bio,
+      education : validatedEducation,
+      experience : validatedExperience
+    });
     // Send response
     return res.json({ success: true, resume: resumeText });
   } catch (error) {

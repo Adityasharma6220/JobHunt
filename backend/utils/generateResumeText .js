@@ -49,7 +49,7 @@ Use the below given template as a reference
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Jyotiraditya K Sharma</title>
+    <title>Resume - Aditya  Sharma</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -127,8 +127,8 @@ Use the below given template as a reference
 
         <section class="contact-info">
             <h2>Contact Information</h2>
-            <p><strong>Phone:</strong> (+91) 9876543210</p>
-            <p><strong>Email:</strong> mailto:jyotiraditya.sharma@example.com</p>
+            <p><strong>Phone:</strong> (+91) your Number</p>
+            <p><strong>Email:</strong> mailto:yourmail@.com</p>
         </section>
 
         <section class="summary">
@@ -154,7 +154,7 @@ Use the below given template as a reference
             <h2>Experience</h2>
             <ul>
                 <li>
-                    <strong>Front-End Developer</strong> | GUGU Solutions (Jan 2021 - Present)<br>
+                    <strong>Front-End Developer</strong> | XYZ Solutions (Jan 2021 - Present)<br>
                     - Developed responsive websites, improving load time by 25%.<br>
                     - Integrated RESTful APIs and optimized site performance.<br>
                     - Collaborated with team members and mentored junior developers.
