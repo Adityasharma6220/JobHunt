@@ -8,7 +8,7 @@ export const generateResumeText = async (user) => {
     email: "No email provided",
   }, skills = "", bio = "No bio available", education = [], experience = [] } = user;
 
-  const skillsList = skills.length > 0 ,
+//   const skillsList = skills.length > 0
   const educationList = education.length > 0 ? education.map(edu => `${edu.degree} from ${edu.institution} (${edu.year})`).join('; ') : "No education listed";
 const experienceList = experience.length > 0 ? experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('; ') : "No experience listed";
 
@@ -25,7 +25,7 @@ Generate a sleek, compact, and responsive HTML5 resume template using the dynami
    
 3. **Summary**: ${bio}
 4. **Skills**: 
-   - ${skillsList}
+   - ${skills}
 5. **Experience**: 
    - ${experienceList}
 6. **Education**: 
