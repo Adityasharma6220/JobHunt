@@ -228,7 +228,7 @@ export const generateResume = async (req, res) => {
       experience : validatedExperience
     });
     // Send response
-    return res.json({ success: true, resume: resumeText });
+    return res.json({success: true, resume:resumeText});
   } catch (error) {
     console.error('Error generating resume:', error);
     return res.status(500).json({ success: false, message: 'Resume generation failed' });
