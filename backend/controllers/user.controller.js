@@ -193,14 +193,14 @@ export const updateProfile = async (req, res) => {
 // const resumeText = await generateResumeText({ firstname, lastname, skills, bio });
 
 // In user.controller.js
-export const generateResume = async (req, res) => {
+export const generateResume = async (req, res) => { 
   try {
     console.log('Request Body:', req.body);
     const { firstname, lastname, contact, profile, education, experience } = req.body;
     const { skills, bio } = profile || {};
 
     // Validate the input
-    if (!profile || !skills.length) {
+    if (!profile ||!skills||!skills.length|| !bio) {
       return res.status(400).json({ success: false, message: 'Profile with skills (array) and bio are required' });
     }
 
