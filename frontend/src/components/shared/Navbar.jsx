@@ -114,8 +114,8 @@ const Navbar = () => {
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
                 <li> <Link to="/networking">Networking</Link> </li>
-                <li><Link to='/JobMapComponent'>JobMapComponent</Link></li>
-                <li><Link to='/HotlinePage'>HotlinePage</Link></li>
+                <li><Link to='/JobMapComponent'>JobMap</Link></li>
+                <li><Link to='/HotlinePage'>HelpLine</Link></li>
                
               </>
             ):
