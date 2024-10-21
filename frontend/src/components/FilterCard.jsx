@@ -5,7 +5,7 @@ import { setSearchedQuery } from '@/redux/jobSlice'; // Import the action
 const filterData = [
   { filterType: "Location", array: ["Delhi", "Noida","Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai", "Rajkot"] },
   { filterType: "Industry", array: ["Healthcare", "Engineering", "Information Technology", "Education", "Business and Finance"] },
-  { filterType: "Role", array: ["Software Development Engineer", "Marketing Manager", "Business", "Quality Assurance Manager", "Sales Executive", "Hospital Administrator"] },
+  // { filterType: "Role", array: ["Software Development Engineer", "Marketing Manager", "Business", "Quality Assurance Manager", "Sales Executive", "Hospital Administrator"] },
   { filterType: "Salary", array: ["8", "7", "9"] },
   { filterType: "Experience", array: ["Experienced", "Entry Level", "3-6 years", "5-7 years", "2-4 years", "5+ years", "1-2 years", "1-3 years", "0-2 years", "1-4 years"] },
   { filterType: "Job Type", array: ["Full-time", "Part-time"] },
