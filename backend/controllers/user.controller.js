@@ -200,7 +200,7 @@ export const generateResume = async (req, res) => {
     const { skills, bio } = profile || {};
 
     // Validate the input
-    if (!profile || !Array.isArray(skills) || !skills.length) {
+    if (!profile || !skills.length) {
       return res.status(400).json({ success: false, message: 'Profile with skills (array) and bio are required' });
     }
 
