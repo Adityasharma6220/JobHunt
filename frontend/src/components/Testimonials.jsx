@@ -16,6 +16,7 @@ import thirten from '../assets/13.png';
 import fourten from '../assets/14.png';
 import fiften from '../assets/15.png';
 import Navbar from './shared/Navbar';
+import sixten from '../assets/path.jpeg';
 
 const testimonialsData = [
   { id: 1, image: one },
@@ -35,29 +36,45 @@ const testimonialsData = [
   { id: 15, image: fiften },
 ];
 
-const Testimonials = () => {
-  const location = useLocation(); // Get the current route
+const testimonialsimg = [
+  { id: 16, image: sixten }
+];
 
-  // Conditional grid classes: 3 columns on home page, 2 columns on other pages
-  const gridClasses = location.pathname === "/" ? "grid-cols-3" : "grid-cols-2";
+const Testimonials = () => {
+  const location = useLocation(); 
+
+  const isHomePage = location.pathname === "/";
+
+  // Define grid layout based on the page
+  const gridClasses = isHomePage ? "" : "grid-cols-2";
 
   return (
     <div>
       {/* Only show Navbar if not on home page */}
-      {location.pathname !== "/" && <Navbar />}
+      {!isHomePage && <Navbar/>}
 
       <div className="flex flex-col items-center justify-start min-h-screen bg-white overflow-hidden">
         {/* Testimonials Images Grid */}
-        <div className={`grid ${gridClasses} gap-4 w-full max-w-6xl`}>
-          {testimonialsData.map(({ id, image }) => (
-            <div key={id} className="flex justify-center items-center bg-white p-4 rounded-lg">
-              <img src={image} alt={`Testimonial ${id}`} className="object-contain w-full h-auto max-h-80" />
-            </div>
-          ))}
+        <div className={`grid ${gridClasses} gap-4 w-full`}>
+          {isHomePage ? (
+            // Show only the sixten image on the homepage
+            testimonialsimg.map(({ id, image }) => (
+              <div key={id} className="flex justify-center ">
+                <img src={image} alt={`Testimonial ${id}`} className = "w-96 h-100vh"   />
+              </div>
+            ))
+          ) : (
+            // Show all testimonials on other pages
+            testimonialsData.map(({ id, image }) => (
+              <div key={id} className="flex justify-center items-center bg-white p-4 rounded-lg">
+                <img src={image} alt={`Testimonial ${id}`} className="object-contain w-full h-auto max-h-80" />
+              </div>
+            ))
+          )}
         </div>
 
         {/* Show iframe only if not on home page */}
-        {location.pathname !== "/" && (
+        {!isHomePage && (
           <div className="w-full max-w-6xl mb-6">
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSd6IBKWChdr0X6olUWR5oxEUx6CLe9jLL2X_I1ckzlUgkmUIA/viewform?embedded=true"
