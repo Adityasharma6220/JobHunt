@@ -17,7 +17,7 @@ const JobDescription = () => {
     const jobId = params.id;
     const dispatch = useDispatch();
 
-    // Check if the user has already applied for the job
+   
     useEffect(() => {
         if (singleJob && user?._id) {
             const isAlreadyApplied = singleJob?.applications?.some(
@@ -32,13 +32,13 @@ const JobDescription = () => {
             const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, { withCredentials: true });
 
             if (res.data.success) {
-                // Update the local state first to reflect immediate changes in the UI
+                
                 setIsApplied(true);
 
-                // Show success message immediately
+                
                 toast.success('You have successfully applied for this job.');
 
-                // Update the job's application list in Redux state
+                
                 const updatedSingleJob = {
                     ...singleJob,
                     applications: [...singleJob.applications, { applicant: user?._id }]

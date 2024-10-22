@@ -34,7 +34,7 @@ const CompanyDetails = () => {
     return (
         <div className='max-w-6xl mx-auto p-8 bg-white'>
             <div className='flex justify-between items-center'>
-                {/* Company Name and Details */}
+               
                 <div className='flex items-center gap-4'>
                     <img src={company.logo} alt={company.name} className='w-16 h-16' />
                     <div>

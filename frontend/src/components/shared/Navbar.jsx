@@ -40,9 +40,9 @@ const Navbar = () => {
               Career<span className="text-[#6A38C2]">Connect</span>
             </h1>
           </Link>
-          <span className="text-lg">|</span> {/* Divider */}
+          <span className="text-lg">|</span> 
           <Link to="/" className="whitespace-nowrap">
-            {/* <h2 className="text-lg">Home</h2> */}
+           
           </Link>
         </div>
         <div className="flex items-center gap-12">

@@ -333,15 +333,15 @@ const CareerGuidance = () => {
         imgSrc: "https://memberpress.com/wp-content/uploads/2023/01/MemberPress-WebinarJam-Integration.jpg",
         altText: 'webinarjam',
         title: 'Webinarjam',
-        description: "Join us for insights into the future of AI.",
+        description: "Join us for Webinarjam.",
         link: "https://www.webinarjam.com" 
       },
       {
         id: 4,
         imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYV3LTJb6s6KviPXzR2npEqhZSkd4vPypQUQ&s",
-        altText: 'AI & Machine Learning Webinar',
-        title: 'AI & Machine Learning - What’s Next?',
-        description: "Join us for insights into the future of AI.",
+        altText: 'goto',
+        title: 'Goto webinar- What’s Next?',
+        description: "Join us for Goto webinar.",
         link: "https://www.goto.com/webinar/join" 
       },
     ],

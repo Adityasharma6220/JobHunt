@@ -25,7 +25,7 @@ const FilterCard = () => {
   const [selectedFilters, setSelectedFilters] = useState({});
   const dispatch = useDispatch();
 
-  // Function to handle change events for filter checkboxes
+
   const changeHandler = (filterType, value, isChecked) => {
     setSelectedFilters(prevFilters => {
       const currentFilter = prevFilters[filterType] || [];

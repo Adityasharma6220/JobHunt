@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./shared/Navbar";
 import FilterCard from "./FilterCard";
 import Job from "./Job";
-import SavedJobsList from "./SavedJobsList"; // Import SavedJobsList component
+import SavedJobsList from "./SavedJobsList"; 
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
-// Utility function to calculate the difference in days between two dates
+
 const getDaysDifference = (date1, date2) => {
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 };
 
-// Function to check salary ranges
+
 const isSalaryMatch = (salary, selectedSalaries) => {
   const salaryValue = parseInt(salary, 10);
   return selectedSalaries.some((range) => {
@@ -31,10 +31,10 @@ const isSalaryMatch = (salary, selectedSalaries) => {
 const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState([]);
-  const [savedJobs, setSavedJobs] = useState([]); // State to store bookmarked jobs
+  const [savedJobs, setSavedJobs] = useState([]); 
 
   useEffect(() => {
-    // Function to filter jobs based on the selected filters
+   
     const filteredJobs = allJobs.filter((job) => {
       const matchesLocation = searchedQuery["Location"]?.length
         ? searchedQuery["Location"].includes(job.location)
@@ -55,14 +55,13 @@ const Jobs = () => {
         ? searchedQuery["Job Type"].includes(job.jobType)
         : true;
 
-      // Match job posting date filter
       const matchJobPost = searchedQuery["Job Post"]?.length
         ? searchedQuery["Job Post"].some((postingFilter) => {
-            const jobDate = new Date(job.createdAt.split("T")[0]); // Extract the date part from 'createdAt'
+            const jobDate = new Date(job.createdAt.split("T")[0]); 
             const currentDate = new Date(); // Current date
-            const daysDifference = getDaysDifference(jobDate, currentDate); // Get the difference in days
+            const daysDifference = getDaysDifference(jobDate, currentDate); 
 
-            // Match against the selected filters for job posting date
+           
             return (
               (postingFilter === "< 1 Days" && daysDifference <= 1) ||
               (postingFilter === "< 2 Days" && daysDifference <= 2) ||

@@ -7,10 +7,10 @@ import Testimonials from './Testimonials';
 const LatestJobs = () => {
     const { allJobs } = useSelector(store => store.job);
 
-    // Create a new array and sort it alphabetically by company name
+    
     const sortedJobs = [...allJobs].sort((a, b) => {
-        const titleA = a.company?.name?.toLowerCase() || ''; // Use optional chaining and fallback to empty string
-        const titleB = b.company?.name?.toLowerCase() || ''; // Use optional chaining and fallback to empty string
+        const titleA = a.company?.name?.toLowerCase() || ''; 
+        const titleB = b.company?.name?.toLowerCase() || ''; 
         return titleA.localeCompare(titleB); 
     });
 
