@@ -54,13 +54,23 @@ const Testimonials = () => {
       {!isHomePage && <Navbar/>}
 
       <div className="flex flex-col items-center justify-start min-h-screen bg-white overflow-hidden">
+        {/* Heading for Testimonials */}
+        <h1 className="text-3xl font-bold text-center my-8">
+          Hear from the Community: Search Experience Insights
+        </h1>
+
+        {/* Description Text */}
+        <p className="text-lg text-center mb-6 max-w-3xl">
+          We asked, you answered! Our recent survey reveals the latest trends and preferences in job search experiences. Discover what these respondents from diverse backgrounds have to say about finding their dream job.
+        </p>
+        
         {/* Testimonials Images Grid */}
         <div className={`grid ${gridClasses} gap-4 w-full`}>
           {isHomePage ? (
             // Show only the sixten image on the homepage
             testimonialsimg.map(({ id, image }) => (
-              <div key={id} className="flex justify-center ">
-                <img src={image} alt={`Testimonial ${id}`} className = "w-96 h-100vh"   />
+              <div key={id} className="flex justify-center">
+                <img src={image} alt={`Testimonial ${id}`} className="w-96 h-100vh" />
               </div>
             ))
           ) : (
@@ -92,11 +102,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-// import { Badge } from './ui/badge'
-// import { useNavigate } from 'react-router-dom'
-
-// const navigate = useNavigate();
-
-
-{/* <div onClick={()=> navigate(`/description/${job._id}`)} className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'> */}

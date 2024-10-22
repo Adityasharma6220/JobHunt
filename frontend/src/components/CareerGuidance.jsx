@@ -226,6 +226,22 @@ const CareerGuidance = () => {
         description: "Global student technology competition.",
         link: "https://www.imaginecup.com/"
       },
+      {
+        id: 3,
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRx_jjML9EhdzZb8EjqvlRGpYcQh7qY11jvw&s",
+        altText: 'Microsoft Imagine Cup',
+        title: '. HackerRank Imagine Cup',
+        description: ". HackerRank student technology competition.",
+        link: "https://www.hackerrank.com/blog/"
+      },
+      {
+        id: 4,
+        imgSrc: "https://ih1.redbubble.net/image.4170502565.0107/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+        altText: 'Codeforces Imagine Cup',
+        title: 'Codeforces Imagine Cup',
+        description: "Codeforces student technology competition.",
+        link: "https://codeforces.com/blog/"
+      },
     ],
     Scholarships: [
       {
@@ -244,6 +260,22 @@ const CareerGuidance = () => {
         description: "UK government’s global scholarship program.",
         link: "https://www.chevening.org/"
       },
+      {
+        id: 3,
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSBZdOwFFEZ0y8_04p1wlJs3FpFHD79Ca5sw&s",
+        altText: 'Scholarship Owl',
+        title: 'Scholarship Owl ',
+        description: "Scholarship Owl  global scholarship program.",
+        link: "https://www.scholarshipowl.com"
+      },
+      {
+        id: 4,
+        imgSrc: "https://ik.imagekit.io/tp/20220202-fastweb-logo.png",
+        altText: 'fastweb Scholarship',
+        title: 'fastweb Scholarship',
+        description: "fastweb global scholarship program.",
+        link: "https://www.fastweb.com"
+      },
     ],
     VirtualJobFairs: [
       {
@@ -261,6 +293,22 @@ const CareerGuidance = () => {
         title: 'Tech Career Fair',
         description: "Connect with top tech companies.",
         link: "https://www.techcareerfair.com/"
+      },
+      {
+        id: 3,
+        imgSrc: "https://47202005.fs1.hubspotusercontent-na1.net/hubfs/47202005/__hs-marketplace__/Portrait_800x800%20(1)-1-1.png",
+        altText: 'vfairs Fair',
+        title: 'vfairs Fair',
+        description: "Connect with top tech companies.",
+        link: "https://www.vfairs.com"
+      },
+      {
+        id: 4,
+        imgSrc: "https://content3.jdmagicbox.com/comp/noida/r2/011pxx11.xx11.170208045807.v9r2/catalogue/careerbuilder-india-noida-pia5zk.jpg",
+        altText: 'Tech Career Fair',
+        title: 'Tech Career Fair',
+        description: "Connect with top tech companies.",
+        link: "https://www.careerbuilder.com"
       },
     ],
     Webinars: [
@@ -282,19 +330,19 @@ const CareerGuidance = () => {
       },
       {
         id: 3,
-        imgSrc: webinarImage,
-        altText: 'AI & Machine Learning Webinar',
-        title: 'AI & Machine Learning - What’s Next?',
+        imgSrc: "https://memberpress.com/wp-content/uploads/2023/01/MemberPress-WebinarJam-Integration.jpg",
+        altText: 'webinarjam',
+        title: 'Webinarjam',
         description: "Join us for insights into the future of AI.",
-        link: "https://www.example.com/webinar/ai" 
+        link: "https://www.webinarjam.com" 
       },
       {
         id: 4,
-        imgSrc: webinarImage,
+        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYV3LTJb6s6KviPXzR2npEqhZSkd4vPypQUQ&s",
         altText: 'AI & Machine Learning Webinar',
         title: 'AI & Machine Learning - What’s Next?',
         description: "Join us for insights into the future of AI.",
-        link: "https://www.example.com/webinar/ai" 
+        link: "https://www.goto.com/webinar/join" 
       },
     ],
   };
@@ -345,9 +393,9 @@ const CareerGuidance = () => {
             Scholarships
           </button>
           <button onClick={() => handleCategoryChange('VirtualJobFairs')} className={`px-4 py-2 rounded-md ${
-              selectedCategory === 'VirtualJobFairs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
+              selectedCategory === 'Virtual Job Fairs' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
             }`}>
-            VirtualJob Fairs
+            Virtual Job Fairs
           </button>
           <button onClick={() => handleCategoryChange('Webinars')} className={`px-4 py-2 rounded-md ${
               selectedCategory === 'Webinars' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black'
