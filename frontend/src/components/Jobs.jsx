@@ -2,24 +2,39 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./shared/Navbar";
 import FilterCard from "./FilterCard";
 import Job from "./Job";
-import SavedJobsList from "./SavedJobsList"; // Import SavedJobsList component
+import SavedJobsList from "./SavedJobsList"; 
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
-// Utility function to calculate the difference in days between two dates
+
 const getDaysDifference = (date1, date2) => {
   const diffTime = Math.abs(date2 - date1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 };
 
+
+const isSalaryMatch = (salary, selectedSalaries) => {
+  const salaryValue = parseInt(salary, 10);
+  return selectedSalaries.some((range) => {
+    if (range.startsWith("<")) {
+      const limit = parseInt(range.split(" ")[1], 10);
+      return salaryValue < limit;
+    } else if (range.startsWith(">=")) {
+      const limit = parseInt(range.split(" ")[1], 10);
+      return salaryValue >= limit;
+    }
+    return false;
+  });
+};
+
 const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState([]);
-  const [savedJobs, setSavedJobs] = useState([]); // State to store bookmarked jobs
+  const [savedJobs, setSavedJobs] = useState([]); 
 
   useEffect(() => {
-    // Function to filter jobs based on the selected filters
+   
     const filteredJobs = allJobs.filter((job) => {
       const matchesLocation = searchedQuery["Location"]?.length
         ? searchedQuery["Location"].includes(job.location)
@@ -31,8 +46,8 @@ const Jobs = () => {
         ? searchedQuery["Role"].includes(job.title)
         : true;
       const matchSalary = searchedQuery["Salary"]?.length
-        ? searchedQuery["Salary"].includes(job.salary)
-        : true;
+        ? isSalaryMatch(job.salary, searchedQuery["Salary"])
+        : true; // Call the salary matching function
       const matchesExperience = searchedQuery["Experience"]?.length
         ? searchedQuery["Experience"].includes(job.experienceLevel)
         : true;
@@ -40,27 +55,22 @@ const Jobs = () => {
         ? searchedQuery["Job Type"].includes(job.jobType)
         : true;
 
-      // Match job posting date filter
       const matchJobPost = searchedQuery["Job Post"]?.length
         ? searchedQuery["Job Post"].some((postingFilter) => {
-            const jobDate = new Date(job.createdAt.split("T")[0]); // Extract the date part from 'createdAt'
+            const jobDate = new Date(job.createdAt.split("T")[0]); 
             const currentDate = new Date(); // Current date
-            const daysDifference = getDaysDifference(jobDate, currentDate); // Get the difference in days
+            const daysDifference = getDaysDifference(jobDate, currentDate); 
 
-            // Match against the selected filters for job posting date
-            if (postingFilter === "< 1 Days" && daysDifference <= 1)
-              return true;
-            if (postingFilter === "< 2 Days" && daysDifference <= 2)
-              return true;
-            if (postingFilter === "< 3 Days" && daysDifference <= 3)
-              return true;
-            if (postingFilter === "< 4 Days" && daysDifference <= 4)
-              return true;
-            if (postingFilter === "< 6 Days" && daysDifference <= 6)
-              return true;
-            if (postingFilter === "< 7 Days" && daysDifference <= 7)
-              return true;
-            return false; // If no match, return false
+           
+            return (
+              (postingFilter === "< 1 Days" && daysDifference <= 1) ||
+              (postingFilter === "< 2 Days" && daysDifference <= 2) ||
+              (postingFilter === "< 3 Days" && daysDifference <= 3) ||
+              (postingFilter === "< 4 Days" && daysDifference <= 4) ||
+              (postingFilter === "< 5 Days" && daysDifference <= 5) ||
+              (postingFilter === "< 6 Days" && daysDifference <= 6) ||
+              (postingFilter === "< 7 Days" && daysDifference <= 7)
+            );
           })
         : true;
 

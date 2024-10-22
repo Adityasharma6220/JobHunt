@@ -23,7 +23,7 @@ const JobMapComponent = () => {
       <div className="p-8 flex flex-col items-center">
         <h2 className="text-2xl font-bold mb-4">Job Search Map</h2>
 
-        {/* Centered Input Field */}
+      
         <div className="mb-4 text-center">
           <h3 className="mb-2">Enter your location</h3>
           <input
@@ -31,7 +31,7 @@ const JobMapComponent = () => {
             value={location}
             onChange={handleLocationChange}
             placeholder="Enter location"
-            className="border p-2 mb-2 w-full max-w-xs" // Added max-width for better appearance
+            className="border p-2 mb-2 w-full max-w-xs" 
           />
           <button onClick={fetchLocation} className="bg-blue-500 text-white p-2 rounded">
             Find Location
@@ -65,4 +65,3 @@ const JobMapComponent = () => {
 };
 
 export default JobMapComponent;
-    

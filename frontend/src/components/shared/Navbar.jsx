@@ -33,48 +33,50 @@ const Navbar = () => {
 
   return (
     <div className="bg-white sticky top-0 z-50">
-      {/* z-50 ensures the Navbar is always on top */}
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
-        <div>
+        <div className="flex items-center gap-4">
           <Link to="/">
             <h1 className="text-2xl font-bold">
-              Career<span className="text-[#022bf8]">Connect</span>
+              Career<span className="text-[#6A38C2]">Connect</span>
             </h1>
+          </Link>
+          <span className="text-lg">|</span> 
+          <Link to="/" className="whitespace-nowrap">
+           
           </Link>
         </div>
         <div className="flex items-center gap-12">
           <ul className="flex font-medium items-center gap-5">
             {user && user.role === "recruiter" ? (
               <>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/admin/companies">Companies</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/admin/jobs">Jobs</Link>
                 </li>
               </>
             ) : user && user.role === "student" ? (
               <>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/jobs">Jobs</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/browse">Browse</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/career">Career Guidance</Link>
                 </li>
-                <li>
-                  <Link to='/resume-builder'>Resume Builder</Link>
+                <li className="whitespace-nowrap">
+                  <Link to="/resume-builder">Resume Builder</Link>
                 </li>
-                <li>
-                  <Link to="/aptitude">AptitudeGame</Link>
+                <li className="whitespace-nowrap">
+                  <Link to="/aptitude">Aptitude Game</Link>
                 </li>
-
-                <li>
+                <li className="whitespace-nowrap">
                   <a
                     href="https://mock-interview.zapier.app/"
                     target="_blank"
@@ -85,70 +87,46 @@ const Navbar = () => {
                 </li>
                 <li><Link to='/testimonial'>Testimonials</Link></li>
                 <li> <Link to="/networking">Networking</Link> </li>
-                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */} 
+                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */}
+                
+                 
                 
               </>
-            ) : user && user.role === "domesticworker" ? (
+            ) : (
               <>
-              <li>
+                <li className="whitespace-nowrap">
                   <Link to="/">Home</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/jobs">Jobs</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/browse">Browse</Link>
                 </li>
-                <li>
+                <li className="whitespace-nowrap">
                   <Link to="/career">Career Guidance</Link>
                 </li>
-                {/* <li>
-                  <Link to="/aptitude">AptitudeGame</Link>
-                </li> */}
-                <li>
+                <li className="whitespace-nowrap">
+                  <Link to="/resume-builder">Resume Builder</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/aptitude">Aptitude Game</Link>
+                </li>
+                <li className="whitespace-nowrap">
                   <a
                     href="https://mock-interview.zapier.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Mock-interview
+                    MockInterview
                   </a>
                 </li>
-                <li><Link to='/testimonial'>Testimonials</Link></li>
-                <li> <Link to="/networking">Networking</Link> </li>
-                <li><Link to='/JobMapComponent'>JobMapComponent</Link></li>
-                <li><Link to='/HotlinePage'>HotlinePage</Link></li>
-               
-              </>
-            ):
-            (
-              <>
-                <li>
-                  <Link to="/">Home</Link>
+                <li className="whitespace-nowrap">
+                  <Link to="/testimonial">Testimonials</Link>
                 </li>
-                <li>
-                  <Link to="/jobs">Jobs</Link>
+                <li className="whitespace-nowrap">
+                  <Link to="/networking">Networking</Link>
                 </li>
-                <li>
-                  <Link to="/browse">Browse</Link>
-                </li>
-                <li>
-                  <Link to="/career">Career Guidance</Link>
-                </li>
-                <li>
-                  <Link to="/aptitude">AptitudeGame</Link>
-                </li>
-                <li>
-                  <a
-                    href="https://mock-interview.zapier.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Mock-interview
-                  </a>
-                </li>
-                <li><Link to='/testimonial'>Testimonials</Link></li>
-                <li> <Link to="/networking">Networking</Link> </li>
               </>
             )}
           </ul>
@@ -173,7 +151,7 @@ const Navbar = () => {
                   />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-80 z-50"> {/* z-50 for popover */}
+              <PopoverContent className="w-80 z-50">
                 <div>
                   <div className="flex gap-2 space-y-2">
                     <Avatar className="cursor-pointer">

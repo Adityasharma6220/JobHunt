@@ -20,7 +20,7 @@ const ValuableResources = () => {
       </p>
 
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 text-center'>
-        
+     
         <div className='relative border-t-2 border-black pt-4'>
           <h3 className='text-xl sm:text-2xl font-bold hover:text-blue-800 transition-colors duration-200 cursor-pointer'>Portfolio Creation</h3>
           <p className='mt-2 sm:mt-4 hover:text-blue-800 transition-colors duration-200'>
@@ -30,7 +30,7 @@ const ValuableResources = () => {
           </p>
         </div>
 
-        {/* Courses with Udemy Link */}
+
         <div className='relative border-t-2 border-black pt-4'>
           <a 
             href='https://www.udemy.com/?utm_source=adwords-brand&utm_medium=udemyads&utm_campaign=Brand-Udemy_la.EN_cc.India_dev.&campaigntype=Search&portfolio=BrandDirect&language=EN&product=Course&test=&audience=Keyword&topic=&priority=&utm_content=deal4584&utm_term=_._ag_133043842461_._ad_595460368512_._kw_udemy%20courses_._de_c_._dm__._pl__._ti_kwd-295955963002_._li_9144445_._pd__._&matchtype=b&gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YFP1wTHDODxlC27oryqsT0mTIDniPgiBVfLvItLrGSiThTLrPQwbWxoCmuIQAvD_BwE' 
@@ -47,7 +47,6 @@ const ValuableResources = () => {
           </a>
         </div>
 
-        {/* Join Community */}
         <div className='relative border-t-2 border-black pt-4'>
           <h3 className='text-xl sm:text-2xl font-bold hover:text-blue-800 transition-colors duration-200 cursor-pointer'>Join Community</h3>
           <p className='mt-2 sm:mt-4 hover:text-blue-800 transition-colors duration-200'>
@@ -56,7 +55,6 @@ const ValuableResources = () => {
             connections, share insights, and collaborate for mutual growth.
           </p>
 
-          {/* Links with YouTube and Discord clickable images */}
           <div className='mt-4 flex justify-center gap-6 sm:gap-10 flex-wrap'>
             <a 
               href='https://www.youtube.com/@CareerConnect-PS04' 
@@ -83,7 +81,6 @@ const ValuableResources = () => {
           </div>
         </div>
 
-        {/* Virtual Job Fairs with vFairs Link */}
         <div className='relative border-t-2 border-black pt-4'>
           <a 
             href='https://www.vfairs.com/event-management-platform/virtual-job-fair/' 

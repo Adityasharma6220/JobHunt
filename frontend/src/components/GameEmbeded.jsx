@@ -1,4 +1,4 @@
-// src/components/GameEmbeded.js
+
 
 import React from 'react';
 import Navbar from './shared/Navbar';

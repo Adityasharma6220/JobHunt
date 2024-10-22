@@ -17,7 +17,7 @@ const Home = () => {
     if (user?.role === 'recruiter') {
       navigate("/admin/companies");
     }
-  }, [user, navigate]); // Added user and navigate to the dependency array
+  }, [user, navigate]);
 
   return (
     <div className=" min-h-screen">

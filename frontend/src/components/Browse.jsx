@@ -84,8 +84,8 @@ const Browse = () => {
                             >
                                 <Job 
                                     job={job} 
-                                    savedJobs={savedJobs} // Pass savedJobs
-                                    setSavedJobs={setSavedJobs} // Pass setSavedJobs
+                                    savedJobs={savedJobs} 
+                                    setSavedJobs={setSavedJobs} 
                                 />
                             </motion.div>
                         ))

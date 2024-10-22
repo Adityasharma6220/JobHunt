@@ -22,9 +22,10 @@ import CompanyDetails from './components/CompanyDetails';
 import GameEmbeded from './components/GameEmbeded';
 import Testimonials from './components/Testimonials';
 import Networking from './components/Networking';
-// import SavedJobsList from './components/SavedJobsList';
-import JobMapComponent from './components/JobMapComponent';
+import SavedJobsList from './components/SavedJobsList';
+import JobMapComponent from './components/JobMapComponent.jsx';
 import HotlinePage from './components/HotlinePage';
+
 
 
 const appRouter = createBrowserRouter([
