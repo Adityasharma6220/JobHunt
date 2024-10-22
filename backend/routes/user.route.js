@@ -10,7 +10,7 @@ router.route("/login").post(login);
 router.route("/logout").post(logout);
 router.route("/profile/update").post(isAuthenticated,singleUpload,updateProfile);
 
-router.route("/generate-resume").post(isAuthenticated, generateResume);  // AI resume generation
+router.route("/generate-resume").post(generateResume);  // AI resume generation
 router.route("/upload-resume").post(isAuthenticated, singleUpload, uploadResume); // Resume upload
 
 export default router;
