@@ -3,13 +3,12 @@ import { useDispatch } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice'; // Import the action
 
 const filterData = [
-  { filterType: "Location", array: ["Delhi", "Noida","Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai", "Rajkot"] },
+  { filterType: "Location", array: ["Delhi", "Noida", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Chennai", "Rajkot"] },
   { filterType: "Industry", array: ["Healthcare", "Engineering", "Information Technology", "Education", "Business and Finance"] },
-  // { filterType: "Role", array: ["Software Development Engineer", "Marketing Manager", "Business", "Quality Assurance Manager", "Sales Executive", "Hospital Administrator"] },
   { filterType: "Salary", array: ["8", "7", "9"] },
   { filterType: "Experience", array: ["Experienced", "Entry Level", "3-6 years", "5-7 years", "2-4 years", "5+ years", "1-2 years", "1-3 years", "0-2 years", "1-4 years"] },
   { filterType: "Job Type", array: ["Full-time", "Part-time"] },
-  { filterType: "Job Post", array: ["< 1 Days","< 2 Days","< 3 Days","< 4 Days","< 5 Days","< 6 Days","< 7 Days"] },
+  { filterType: "Job Post", array: ["< 1 Days", "< 2 Days", "< 3 Days", "< 4 Days", "< 5 Days", "< 6 Days", "< 7 Days"] },
 ];
 
 const FilterCard = () => {
@@ -19,14 +18,12 @@ const FilterCard = () => {
   // Function to handle change events for filter checkboxes
   const changeHandler = (filterType, value, isChecked) => {
     setSelectedFilters(prevFilters => {
-      const currentFilter = prevFilters[filterType] || []; e
+      const currentFilter = prevFilters[filterType] || [];
       let updatedFilter;
 
       if (isChecked) {
-        
         updatedFilter = [...currentFilter, value];
       } else {
-        
         updatedFilter = currentFilter.filter(item => item !== value);
       }
 
@@ -38,7 +35,6 @@ const FilterCard = () => {
   };
 
   useEffect(() => {
-   
     dispatch(setSearchedQuery(selectedFilters));
   }, [selectedFilters, dispatch]);
 

@@ -19,6 +19,7 @@ const Jobs = () => {
   const [savedJobs, setSavedJobs] = useState([]); // State to store bookmarked jobs
 
   useEffect(() => {
+    debugger
     // Function to filter jobs based on the selected filters
     const filteredJobs = allJobs.filter((job) => {
       const matchesLocation = searchedQuery["Location"]?.length
