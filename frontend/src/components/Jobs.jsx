@@ -13,13 +13,27 @@ const getDaysDifference = (date1, date2) => {
   return diffDays;
 };
 
+// Function to check salary ranges
+const isSalaryMatch = (salary, selectedSalaries) => {
+  const salaryValue = parseInt(salary, 10);
+  return selectedSalaries.some((range) => {
+    if (range.startsWith("<")) {
+      const limit = parseInt(range.split(" ")[1], 10);
+      return salaryValue < limit;
+    } else if (range.startsWith(">=")) {
+      const limit = parseInt(range.split(" ")[1], 10);
+      return salaryValue >= limit;
+    }
+    return false;
+  });
+};
+
 const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState([]);
   const [savedJobs, setSavedJobs] = useState([]); // State to store bookmarked jobs
 
   useEffect(() => {
-    debugger
     // Function to filter jobs based on the selected filters
     const filteredJobs = allJobs.filter((job) => {
       const matchesLocation = searchedQuery["Location"]?.length
@@ -32,8 +46,8 @@ const Jobs = () => {
         ? searchedQuery["Role"].includes(job.title)
         : true;
       const matchSalary = searchedQuery["Salary"]?.length
-        ? searchedQuery["Salary"].includes(job.salary)
-        : true;
+        ? isSalaryMatch(job.salary, searchedQuery["Salary"])
+        : true; // Call the salary matching function
       const matchesExperience = searchedQuery["Experience"]?.length
         ? searchedQuery["Experience"].includes(job.experienceLevel)
         : true;
@@ -49,19 +63,15 @@ const Jobs = () => {
             const daysDifference = getDaysDifference(jobDate, currentDate); // Get the difference in days
 
             // Match against the selected filters for job posting date
-            if (postingFilter === "< 1 Days" && daysDifference <= 1)
-              return true;
-            if (postingFilter === "< 2 Days" && daysDifference <= 2)
-              return true;
-            if (postingFilter === "< 3 Days" && daysDifference <= 3)
-              return true;
-            if (postingFilter === "< 4 Days" && daysDifference <= 4)
-              return true;
-            if (postingFilter === "< 6 Days" && daysDifference <= 6)
-              return true;
-            if (postingFilter === "< 7 Days" && daysDifference <= 7)
-              return true;
-            return false; // If no match, return false
+            return (
+              (postingFilter === "< 1 Days" && daysDifference <= 1) ||
+              (postingFilter === "< 2 Days" && daysDifference <= 2) ||
+              (postingFilter === "< 3 Days" && daysDifference <= 3) ||
+              (postingFilter === "< 4 Days" && daysDifference <= 4) ||
+              (postingFilter === "< 5 Days" && daysDifference <= 5) ||
+              (postingFilter === "< 6 Days" && daysDifference <= 6) ||
+              (postingFilter === "< 7 Days" && daysDifference <= 7)
+            );
           })
         : true;
 
@@ -134,4 +144,3 @@ const Jobs = () => {
 };
 
 export default Jobs;
-  

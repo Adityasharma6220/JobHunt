@@ -32,10 +32,10 @@ const AdminJobsTable = () => {
             <Table className="min-w-full">
                 <TableCaption className="text-center text-lg font-semibold mb-4">Recent Posted Jobs</TableCaption>
                 <TableHeader>
-                    <TableRow className="bg-purple-300 text-white">
-                        <TableHead className="py-3 px-4">Company Name</TableHead>
-                        <TableHead className="py-3 px-4">Role</TableHead>
-                        <TableHead className="py-3 px-4">Date</TableHead>
+                    <TableRow className="bg-purple-500 text-white">
+                        <TableHead className="py-3 px-4 text-black">Company Name</TableHead>
+                        <TableHead className="py-3 px-4 text-black">Role</TableHead>
+                        <TableHead className="py-3 px-4 text-black">Date</TableHead>
                         <TableHead className="text-right py-3 px-4">Action</TableHead>
                     </TableRow>
                 </TableHeader>
