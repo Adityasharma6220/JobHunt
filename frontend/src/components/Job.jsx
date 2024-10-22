@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import { Bookmark, AlertTriangle } from 'lucide-react'; // Import AlertTriangle for reporting
+import { Bookmark, AlertTriangle } from 'lucide-react'; 
 import { Avatar, AvatarImage } from './ui/avatar';
 import { Badge } from './ui/badge';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
     
     const [showBookmarkPopup, setShowBookmarkPopup] = useState(false);
     const [showReportPopup, setShowReportPopup] = useState(false);
-    const [isReported, setIsReported] = useState(false); // State to track if job is reported
+    const [isReported, setIsReported] = useState(false);
 
     const daysAgoFunction = (mongodbTime) => {
         const createdAt = new Date(mongodbTime);
@@ -21,49 +21,43 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
 
     const handleBookmark = () => {
         if (savedJobs.some(savedJob => savedJob._id === job._id)) {
-          // Unbookmark the job
-          setSavedJobs(savedJobs.filter(savedJob => savedJob._id !== job._id));
-          setShowBookmarkPopup(false); 
+            setSavedJobs(savedJobs.filter(savedJob => savedJob._id !== job._id));
+            setShowBookmarkPopup(false); 
         } else {
-          // Bookmark the job
-          setSavedJobs([...savedJobs, job]);
-          setShowBookmarkPopup(true);
+            setSavedJobs([...savedJobs, job]);
+            setShowBookmarkPopup(true);
         }
-      };
-      
+    };
 
     const handleReport = () => {
         if (isReported) {
-            // Reset reported state
             setIsReported(false);
-            setShowReportPopup(false); // Hide report popup
+            setShowReportPopup(false);
         } else {
-            // Mark job as reported
             setIsReported(true);
-            // Handle reporting the job (e.g., send to server)
             console.log(`Reported job: ${job.company.name} as fake`);
-            setShowReportPopup(true); // Show report confirmation popup
+            setShowReportPopup(true);
         }
     };
 
     return (
-        <div className='p-5 rounded-md shadow-xl bg-white border border-gray-100 h-full flex flex-col justify-between'>
+        <div className='w-full bg-white shadow-lg rounded-lg p-5 border border-gray-200 h-full flex flex-col justify-between transition-transform transform hover:scale-105'>
             <div>
                 <div className='flex items-center justify-between'>
                     <p className='text-sm text-gray-500'>
                         {daysAgoFunction(job?.createdAt) === 0 ? "Today" : `${daysAgoFunction(job?.createdAt)} days ago`}
                     </p>
                     <div className="flex gap-2">
-                        <Button onClick={handleBookmark} variant="outline" className="rounded-full" size="icon">
+                        <Button onClick={handleBookmark} variant="outline" className="rounded-full p-2" size="icon">
                             <Bookmark color={savedJobs.some(savedJob => savedJob._id === job._id) ? 'blue' : 'gray'} />
                         </Button>
                         <Button 
                             onClick={handleReport} 
                             variant="outline" 
-                            className={`rounded-full ${isReported ? 'bg-red-100 text-white' : 'bg-gray-200 text-gray-700'}`} 
+                            className={`rounded-full p-2 ${isReported ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'}`} 
                             size="icon"
                         >
-                            <AlertTriangle color={isReported ? 'red' : 'white'} />
+                            <AlertTriangle color={isReported ? 'white' : 'gray'} />
                         </Button>
                     </div>
                 </div>
@@ -75,7 +69,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
                         </Avatar>
                     </Button>
                     <div className='overflow-hidden'>
-                        <h1 className='font-bold text-[#7c4cce] text-lg whitespace-nowrap overflow-ellipsis overflow-hidden'>{job?.company?.name}</h1>
+                        <h1 className='font-bold text-[#7c4cce] text-lg whitespace-nowrap overflow-ellipsis'>{job?.company?.name}</h1>
                         <p className='text-sm text-gray-500'>India</p>
                     </div>
                 </div>
@@ -96,7 +90,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
                         {job?.jobType}
                     </Badge>
                     <Badge className='text-[#6A38C2] font-bold text-sm' variant="ghost">
-                        {job?.salary} lpa  
+                        {job?.salary}
                     </Badge>
                     <Badge className='text-[#6A38C2] font-bold text-sm' variant="ghost">
                         {job?.experienceLevel} EXP
@@ -105,10 +99,10 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
             </div>
 
             <div className='flex items-center gap-4 mt-4'>
-                <Button onClick={() => navigate(`/description/${job?._id}`)} variant="outline">
+                <Button onClick={() => navigate(`/description/${job?._id}`)} variant="outline" className="flex-1">
                     Details
                 </Button>
-                <Button className="bg-[#7209b7]">
+                <Button className="bg-[#7209b7] text-white flex-1">
                     Save For Later
                 </Button>
             </div>
@@ -126,7 +120,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
             {/* Report Popup */}
             {showReportPopup && (
                 <div className="fixed inset-0 flex items-center justify-center z-50">
-                    <div className="bg-white  p-5 rounded shadow-lg">
+                    <div className="bg-white p-5 rounded shadow-lg">
                         <p className="text-lg">You have reported this company as fake.</p>
                         <button onClick={() => setShowReportPopup(false)} className="mt-4 text-red-500 underline">Close</button>
                     </div>

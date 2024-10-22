@@ -270,7 +270,7 @@ const CareerGuidance = () => {
         altText: 'AI & Machine Learning Webinar',
         title: 'AI & Machine Learning - What’s Next?',
         description: "Join us for insights into the future of AI.",
-        link: "https://www.example.com/webinar/ai" // Placeholder for the link
+        link: "https://www.example.com/webinar/ai" 
       },
       {
         id: 2,
@@ -278,7 +278,23 @@ const CareerGuidance = () => {
         altText: 'Web Development Trends Webinar',
         title: 'Web Development Trends in 2024',
         description: "Stay updated with the latest trends.",
-        link: "https://www.example.com/webinar/webdev" // Placeholder for the link
+        link: "https://www.example.com/webinar/webdev" 
+      },
+      {
+        id: 3,
+        imgSrc: webinarImage,
+        altText: 'AI & Machine Learning Webinar',
+        title: 'AI & Machine Learning - What’s Next?',
+        description: "Join us for insights into the future of AI.",
+        link: "https://www.example.com/webinar/ai" 
+      },
+      {
+        id: 4,
+        imgSrc: webinarImage,
+        altText: 'AI & Machine Learning Webinar',
+        title: 'AI & Machine Learning - What’s Next?',
+        description: "Join us for insights into the future of AI.",
+        link: "https://www.example.com/webinar/ai" 
       },
     ],
   };

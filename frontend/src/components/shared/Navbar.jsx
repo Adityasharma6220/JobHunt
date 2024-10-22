@@ -38,7 +38,7 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <h1 className="text-2xl font-bold">
-              Career<span className="text-[#022bf8]">Connect</span>
+              Career<span className="text-[#6A38C2]">Connect</span>
             </h1>
           </Link>
         </div>

@@ -92,3 +92,11 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+// import { Badge } from './ui/badge'
+// import { useNavigate } from 'react-router-dom'
+
+// const navigate = useNavigate();
+
+
+{/* <div onClick={()=> navigate(`/description/${job._id}`)} className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'> */}
