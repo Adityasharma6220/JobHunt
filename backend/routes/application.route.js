@@ -7,7 +7,7 @@ const router = express.Router();
 router.route("/apply/:id").get(applyJob);
 router.route("/get").get(getAppliedJobs);
 router.route("/:id/applicants").get(isAuthenticated, getApplicants);
-router.route("/status/:id/update").post(isAuthenticated, updateStatus);
+router.route("/status/:id/update").post(updateStatus);
  
 
 export default router;
