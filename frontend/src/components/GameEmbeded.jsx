@@ -9,7 +9,7 @@ const GameEmbeded = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center h-screen bg-gray-900 overflow-hidden">
         <iframe
-          src="https://play.rosebud.ai/games/fb42ce41-252c-4518-b6f7-7f280a312f40"
+          src="https://play.rosebud.ai/games/ee5e3ee1-eb52-4476-a3d0-38d3c3664a3e"
           className="w-full h-full rounded-lg shadow-lg overflow-hidden"
           frameBorder="0"
           allowFullScreen
