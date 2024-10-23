@@ -8,7 +8,7 @@ export const generateResumeText = async (user) => {
     email: "No email provided",
   }, skills = "", bio = "No bio available", education = [], experience = [] } = user;
 
-  const skillsList = skills.length > 0 ,
+  
   const educationList = education.length > 0 ? education.map(edu => `${edu.degree} from ${edu.institution} (${edu.year})`).join('; ') : "No education listed";
 const experienceList = experience.length > 0 ? experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('; ') : "No experience listed";
 
