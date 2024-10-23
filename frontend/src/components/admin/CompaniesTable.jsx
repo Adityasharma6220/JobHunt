@@ -49,10 +49,10 @@ const CompaniesTable = () => {
         </TableCaption>
         <TableHeader>
           <TableRow className="bg-blue-600 text-white">
-            <TableHead className="py-3 px-4 font-bold">Logo</TableHead>
-            <TableHead className="py-3 px-4 font-bold">Name</TableHead>
-            <TableHead className="py-3 px-4 font-bold">Date</TableHead>
-            <TableHead className="text-right py-3 px-4 font-bold">Action</TableHead>
+            <TableHead className="py-3 px-4 text-black font-bold">Logo</TableHead>
+            <TableHead className="py-3 px-4 text-black font-bold">Name</TableHead>
+            <TableHead className="py-3 px-4 text-black font-bold">Date</TableHead>
+            <TableHead className="text-right py-3 px-4 text-black font-bold">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
