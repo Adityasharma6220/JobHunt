@@ -85,33 +85,12 @@ const Navbar = () => {
                     AI Mock Interviews
                   </a>
                 </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/testimonial">Testimonials</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/networking">Networking</Link>
-                </li>
-              </>
-            ) : user && user.role === "domesticworker" ? (
-              <>
-                <li className="whitespace-nowrap">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/jobs">Jobs</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/browse">Browse</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/career">Career Guidance</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/JobMapComponent">JobMap</Link>
-                </li>
-                <li className="whitespace-nowrap">
-                  <Link to="/HotlinePage">HelpLine</Link>
-                </li>
+                <li><Link to='/testimonial'>Testimonials</Link></li>
+                <li> <Link to="/networking">Networking</Link> </li>
+                {/* <li> <Link to="/savedjob">SavedJobs</Link> </li> */}
+                
+                 
+                
               </>
             ) : (
               <>
