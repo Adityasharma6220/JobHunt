@@ -83,6 +83,7 @@ const Job = ({ job, savedJobs, setSavedJobs }) => {
                     <Badge className='text-[#6A38C2] font-bold text-sm' variant="ghost">
                         {job?.position} Positions
                     </Badge>
+                    
                     <Badge className='text-[#6A38C2] font-bold text-sm' variant="ghost">
                         {job?.location} location
                     </Badge>
