@@ -92,7 +92,29 @@ const Navbar = () => {
                  
                 
               </>
-            ) : (
+            ) : user && user.role === "domesticworker" ? (
+              <>
+                <li className="whitespace-nowrap">
+                  <Link to="/">Home</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/jobs">Jobs</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/browse">Browse</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/career">Career Guidance</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/JobMapComponent">JobMap</Link>
+                </li>
+                <li className="whitespace-nowrap">
+                  <Link to="/HotlinePage">HelpLine</Link>
+                </li>
+              </>
+            ) :
+            (
               <>
                 <li className="whitespace-nowrap">
                   <Link to="/">Home</Link>
